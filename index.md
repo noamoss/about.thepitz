@@ -1,37 +1,29 @@
-## Welcome to GitHub Pages
+## Who are we
 
-You can use the [editor on GitHub](https://github.com/noamoss/noamoss.github.io/edit/master/index.md) to maintain and preview the content for your website in Markdown files.
+Got me. it is [just me](https://il.linkedin.com/in/noam-castel-036976b) for now.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
 
-### Markdown
+## What do we offer?
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+The market is full of great digital products and service providers. The ongoing changes dominate the changing requirements from digital tools in any fields. There is just one big problem - technology has a cost, and its solutions are never perfect. In a positive scenario - an excellent technological solution triggers the user/client's appetite for more (costly) features. On the other hand, many other times we find ourselves unhappy with the result of an expensive and costly
 
-```markdown
-Syntax highlighted code block
+### Our Method - JIJO (or, think tiny!)
+JIJO (Jump In Jump Out) Means we will not provide large plans with high price offers. We will spend some time getting to know the human (user) need and try to come to relatively cheap and straightforward solutions. It might not be perfect, but it must have a beneficial effect - otherwise, we will won't make an offer.
 
-# Header 1
-## Header 2
-### Header 3
+- Quick Scripts and Web Developments: we won't build you a fancy and shiny website, but we will quickly (and cheaply) provide tailored solutions. Whether
 
-- Bulleted
-- List
+- Open source tools introduction and user training: We believe in the Open Source Way. That's why our first choice would be investigating for relevant projects to answer your needs. We will also offer a lower price if you approve of publishing it under [an Open Source License](https://opensource.org/licenses), and by that let other to enjoy the code base, and yourself to enjoy potential benefits of common goods.
 
-1. Numbered
-2. List
+- Site SEO 101: There are many experts around promising to push your site to the top of the leading search results list. We won't guarantee that. We assume that your site's content and its usability are the main factors for its success. It does not mean you should not care at all of SEO - but that it should not take too much effort to check and create a basic checklist of both technical recommended actions and content management updates to support it. The difference, again, is the scope of the audit process and the expected follow-up recommendations.
 
-**Bold** and _Italic_ and `Code` text
+- Site Accessibility 101: we support the increasing awareness of the need to enable people with disabilities taking part in the digital arena. We also acknowledge the fact it is not always straightforward and might require more resources to follow the [common standards](https://www.w3.org/TR/WCAG20/) in the field. We could help you understand where does your site stands regarding these standards and recommend what the missing practices of your current website are. Even better, we
 
-[Link](url) and ![Image](src)
-```
+- Machine Learning, Deep Learning, Natural Language Processing, and Data Science Basics Steps: Wow - this is a long list of buzzwords, isn't it? The truth is that we are in the process of professionalizing in these two exciting fields. Yes, you read it right - we are not there yet. We believe that practice is the right path for specialization, so while we already have the basic understanding and working on strengthening ourselves in these fields - we will be excited hearing about your ideas and think together of ways for a starter.
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+### What did you already build? Show me some examples...
+Wait, It's coming!
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/noamoss/noamoss.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+## Convinced, how do I contact you?
+- [By email](mailto:pitz@thepitz.io) (pitz@thepitz.io)
+- By twitter: Soon!
