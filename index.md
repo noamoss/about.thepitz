@@ -18,7 +18,7 @@ The market is full of great digital products and service providers. The ongoing 
 
 - **Site Accessibility 101**: we support the increasing awareness of the need to enable people with disabilities taking part in the digital arena. We also acknowledge the fact it is not always straightforward and might require more resources to follow the [common standards](https://www.w3.org/TR/WCAG20/) in the field. We could help you understand where does your site stands regarding these standards and recommend what the missing practices of your current website are. Even better, we
 
-- **Machine Learning, Deep Learning, Natural Language Processing, and Data Science Basics**: Wow - this is a long list of buzzwords, isn't it? The truth is that we are in the process of professionalizing in these two exciting fields. Yes, you read it right - we are not there yet. We believe that practice is the right path for specialization, so while we already have the basic understanding and working on strengthening ourselves in these fields - we will be excited hearing about your ideas and think together of ways for a starter.
+- **Machine Learning, Deep Learning, Natural Language Processing, and Data Science Basics**: Wow - this is a long list of buzzwords, isn't it? The truth is that we are in the process of professionalizing in these exciting fields. Yes, you read it right - we are not there yet. We believe that practice is the right path for specialization, so while we already have the basic understanding and working on strengthening ourselves in these fields - we will be excited hearing about your ideas and think together of ways for a starter.
 
 ### What did you already build? Show me some examples...
 Wait, It's coming!
