@@ -28,4 +28,4 @@ Wait, It's coming!
 
 ## Convinced, how do I contact you?
 - [By email](mailto:pitz@thepitz.io) (pitz@thepitz.io)
-- By twitter: Soon!
+- By twitter: [@pitz_the](https://twitter.com/pitz_the)
