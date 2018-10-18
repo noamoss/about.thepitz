@@ -274,7 +274,7 @@ header h2 { width: 540px; margin-top: 0; margin-bottom: 0; font-size: 26px; font
 
 #main-content img { max-width: 100%; }
 
-aside#sidebar { float: left; width: 200px; min-height: 504px; padding-right: 20px; font-size: 12px; line-height: 1.3; background: transparent url(../images/sidebar-bg.jpg) 0 0 no-repeat; }
+aside#sidebar { float: left; width: 200px; min-height: 504px; padding-right: 20px; font-size: 12px; line-height: 1.3; background: transparent url(assets/images/sidebar-bg.jpg) 0 0 no-repeat; }
 
 aside#sidebar p.repo-owner, aside#sidebar p.repo-owner a { font-weight: bold; }
 
