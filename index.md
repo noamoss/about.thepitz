@@ -1,3 +1,10 @@
+---
+
+layout: default
+description: Think Tiny Development Solutions!
+---
+
+
 # Who are we
 
 Got me. it is [just me](https://il.linkedin.com/in/noam-castel-036976b) for now.
