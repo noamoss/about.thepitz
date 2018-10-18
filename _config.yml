@@ -1,5 +1,5 @@
 theme: jekyll-theme-architect
 title: ThePitz.io
-
+include: he_index.md
 # Google Analytics
 google_analytics: UA-126616292-1
