@@ -37,4 +37,4 @@ description: פתרונות דיגיטליים קטנים
 ## השתכנעתי, איך יוצרים אכם קשר??
 - בדוא"ל": [pitz@thepitz.io](mailto:pitz@thepitz.io)
 - בצוויצר: [@pitz_the](https://twitter.com/pitz_the)
-- עם לחצן הצ'ט שמופיע באתר, ממש פה בצד ימין.
+- עם האייקון שמימין.
