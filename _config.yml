@@ -1,4 +1,5 @@
 theme: jekyll-theme-architect
 title: ThePitz.io
+exclude: [vendor]
 # Google Analytics
 google_analytics: UA-126616292-1
