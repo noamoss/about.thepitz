@@ -3,7 +3,7 @@
 layout: default
 description: Think Tiny Development Solutions!
 ---
- 
+
 
 # Who are we
 
@@ -19,7 +19,9 @@ The market is full of great digital products and service providers. The ongoing 
 
 ## Yea.. but what do we offer?
 
-- **Quick Scripts and Web Developments**: we won't build you a fancy and shiny website, but we will quickly (and cheaply) provide tailored solutions. Whether
+- **Machine Learning, Deep Learning, Natural Language Processing, and Data Science Basics**: Wow - this is a long list of buzzwords, isn't it? The truth is that we are in the process of professionalizing in these exciting fields. Yes, you read it right - we are not there yet. We believe that practice is the right path for specialization, so while we already have the basic understanding and working on strengthening ourselves in these fields - we will be excited hearing about your ideas and think together of ways for a starter.
+
+- **Quick Scripts and Web Developments**: we won't build you a fancy and shiny website, but we will quickly (and cheaply) provide tailored solutions.
 
 - **Open source tools introduction and user training**: We believe in the Open Source Way. That's why our first choice would be investigating for relevant projects to answer your needs. We will also offer a lower price if you approve of publishing it under [an Open Source License](https://opensource.org/licenses), and by that let other to enjoy the code base, and yourself to enjoy potential benefits of common goods.
 
@@ -27,7 +29,6 @@ The market is full of great digital products and service providers. The ongoing 
 
 - **Site Accessibility 101**: we support the increasing awareness of the need to enable people with disabilities taking part in the digital arena. We also acknowledge the fact it is not always straightforward and might require more resources to follow the [common standards](https://www.w3.org/TR/WCAG20/) in the field. We could help you understand where does your site stands regarding these standards and recommend what the missing practices of your current website are. Even better, we
 
-- **Machine Learning, Deep Learning, Natural Language Processing, and Data Science Basics**: Wow - this is a long list of buzzwords, isn't it? The truth is that we are in the process of professionalizing in these exciting fields. Yes, you read it right - we are not there yet. We believe that practice is the right path for specialization, so while we already have the basic understanding and working on strengthening ourselves in these fields - we will be excited hearing about your ideas and think together of ways for a starter.
 
 ## What did you already build? Show me some examples...
 Wait, It's coming!
@@ -35,3 +36,4 @@ Wait, It's coming!
 ## Convinced, how do I contact you?
 - By email: [pitz@thepitz.io](mailto:pitz@thepitz.io)
 - On twitter: [@pitz_the](https://twitter.com/pitz_the)
+- Leave a message via site (see the envelope icon at the bottom-right?)
