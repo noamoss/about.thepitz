@@ -1,5 +1,5 @@
 ---
-description: modest digital solutions for real world.
+description: modest digital solutions for the real world.
 lang: en_US
 ---
 
