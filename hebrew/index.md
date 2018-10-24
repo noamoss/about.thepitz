@@ -1,7 +1,7 @@
 ---
 layout: he_default
 title: הפיץ, חושבים קטנטן
-description: פתרונות דיגיטליים קטנים לבעיות אמיתיות. Machine Learning, Natural Language Processing, Open Source and Project management)
+description: פתרונות דיגיטליים צנועים לעולם האמיתי.
 lang: he_IL
 ---
 
