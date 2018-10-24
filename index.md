@@ -1,7 +1,7 @@
 ---
-
+description: digital solutions for real world problems, modest projects for well defined tasks Machine Learning, Natural Language Processing, Open Source and Project management)
 layout: default
-description: Think Tiny Development Solutions!
+lang: en_US
 ---
 
 
