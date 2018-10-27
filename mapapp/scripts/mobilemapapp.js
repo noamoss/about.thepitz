@@ -6,7 +6,7 @@ var mapbox_access_token = config.MAPBOX_ACCESS_TOKEN;
 
 
 // create a map instance
-var mymap = L.map('map').setView([51.505, -0.09], 13);
+var mymap = L.map('map').locate({setView: true, maxZoon: 16});
 
 // add layer to map
 L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}', {
