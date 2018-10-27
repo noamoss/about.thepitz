@@ -8,3 +8,12 @@ html, body, #map {
   height: 100%;
   width: 100vw;
 }
+
+header {
+  text-align: center;
+}
+
+#currentLocationBtn {
+  position: static;
+  align-self: center;
+}
