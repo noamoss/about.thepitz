@@ -29,8 +29,11 @@ The market is full of great digital products and service providers. The ongoing 
 - **Site Accessibility 101**: we support the increasing awareness of the need to enable people with disabilities taking part in the digital arena. We also acknowledge the fact it is not always straightforward and might require more resources to follow the [common standards](https://www.w3.org/TR/WCAG20/) in the field. We could help you understand where does your site stands regarding these standards and recommend what the missing practices of your current website are. Even better, we
 
 
-## What did you already build? Show me some examples...
-Wait, It's coming!
+## Show me some examples...
+* Apply the JIJO method for Hebrew Natural Language Processing analyzes for [ZenCity](https://zencity.io){:target="_blank"}.
+* Build a mechanism to identify similar/relevant entities in the [Obudget.org](https://Obudget.org){:target="_blank"}   (covering the Israeli national budget data ecosystem), based on quantitative and qualitative properties. (In progress..)
+* Basic web development and NLP for [CrowdAction](http://crowdaction.co){:target="_blank"}. (In progress..)
+* Translated [Select Star Sql](https://selectstarsql.com/he/){:target="_blank"}, a great resource to Hebrew (made by [Zi Chong Kao](https://kaomorphism.com/){:target="_blank"}), setup for future RTL/LTR interface translations.
 
 ## Convinced, how do I contact you?
 - By email: [pitz@thepitz.io](mailto:pitz@thepitz.io)

@@ -33,6 +33,17 @@ lang: he_IL
 - **נגישות בסיסית לאתרים**: אנחנו תומכים בהגברת המודעות להנגשת אתרים לאנשים עם מוגבלויות, שמאפשרת ליותר ויותר מאיתנו לקחת חלק במרחב הדיגיטלי. אנחנו גם מכירים בעובדה שזה לא תמיד פשוט כל כך לעמוד ב[תקנים המקובלים](https://www.w3.org/TR/WCAG20/) בנושא. אנחנו יכולים לעזור לך להבין פחות או יותר איפה האתר שלך נמצא ביחס לסטנדרטים המקובלים ולהצביע על צעדים או פעולות שתוכלו לנקוט על מנת לשפר את המצב של האתר שלכם.
 
 
+* Apply the JIJO method for Hebrew Natural Language Processing analyzes for [ZenCity](https://zencity.io){:target="_blank"}.
+* Build a mechanism to identify similar/relevant entities in the [Obudget.org](https://Obudget.org){:target="_blank"}   (covering the Israeli national budget data ecosystem), based on quantitative and qualitative properties. (In progress..)
+* Basic web development and Hebrew NLP for [CrowdAction](http://crowdaction.co){:target="_blank"}. (In progress..)
+* Translated [Select Star Sql](https://selectstarsql.com/he/){:target="_blank"}, a great resource to Hebrew (made by [Zi Chong Kao](https://kaomorphism.com/){:target="_blank"}), setup for future RTL/LTR interface translations.
+
+## אז מה כבר עשינו ועם מי...?
+* משימות פיתוח ממוקדות, בהתאם לשיטת הקפקה שלנו, לשיפור עיבוד טקסטים בשפה העברית עבור [ZenCity](https://zencity.io){:target="_blank"}.
+* פיתוח מנגנון לזיהוי ישויות דומות וקשורות על פי מאפיינים כמותניים ואיכותניים בפרוייקט [מפתח התקציב](https://Obudget.org){:target="_blank"}. (בתהליך...)
+* פיתוח web בסיסי ועיבוד שפה עבור [CrowdAction](http://crowdaction.co){:target="_blank"}. (בתהליך...)
+* תרגום לעברית של [Select Star Sql](https://selectstarsql.com/he/){:target="_blank"}, מקור מידע מעולה (שנכתב ע"י "[Zi Chong Kao](https://kaomorphism.com/){:target="_blank"}), והנחת תשתית לתרגומים בשפות אחרות בעתיד.
+
 ## מה כבר עשינו? על מה אנחנו עובדים עכשיו...?
 חכו, זה מגיע!
 
