@@ -39,8 +39,6 @@ lang: he_IL
 * פיתוח web בסיסי ועיבוד שפה עבור [CrowdAction](http://crowdaction.co){:target="_blank"}. (בתהליך...)
 * תרגום לעברית של [Select Star Sql](https://selectstarsql.com/he/){:target="_blank"}, מקור מידע מעולה (שנכתב ע"י "[Zi Chong Kao](https://kaomorphism.com/){:target="_blank"}), והנחת תשתית לתרגומים בשפות אחרות בעתיד.
 
-## מה כבר עשינו? על מה אנחנו עובדים עכשיו...?
-חכו, זה מגיע!
 
 ## השתכנעתי, איך יוצרים אכם קשר??
 - בדוא"ל": [pitz@thepitz.io](mailto:pitz@thepitz.io)
