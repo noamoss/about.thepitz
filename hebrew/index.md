@@ -3,7 +3,7 @@ layout: he_default
 title: הפיץ, חושבים קטנטן
 description: פתרונות דיגיטליים צנועים לעולם האמיתי.
 lang: he_IL
-permalink: /he/
+permalink: /hebrew/
 ---
 
 # מי אנחנו?
