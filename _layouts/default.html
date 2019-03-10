@@ -3,10 +3,14 @@
 
 <body>
   {% include header.html %}
+
   <div id="content-wrapper">
     <div class="inner clearfix">
+
       <section id="main-content">
         {{ content }}
+
+        {% include posts_en.html %}
       </section>
 
       {% include sidebar.html %}
@@ -22,5 +26,6 @@
         ga('send', 'pageview');
       </script>
     {% endif %}
+    {% include footer.html %}
   </body>
 </html>

@@ -8,8 +8,11 @@
   <div class="inner clearfix">
     <section id="main-content">
       {{ content }}
+
+      {% include posts_he.html %}
     </section>
-    {% include he_sidebar.html %}
+
+    {% include sidebar.html %}
   </div>
 </div>
     {% if site.google_analytics %}
@@ -22,5 +25,7 @@
         ga('send', 'pageview');
       </script>
     {% endif %}
+    {% include footer.html %}
+
   </body>
 </html>

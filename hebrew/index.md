@@ -3,6 +3,7 @@ layout: he_default
 title: הפיץ, חושבים קטנטן
 description: פתרונות דיגיטליים צנועים לעולם האמיתי.
 lang: he_IL
+permalink: /he/
 ---
 
 # מי אנחנו?
@@ -40,7 +41,7 @@ lang: he_IL
 * תרגום לעברית של [Select Star Sql](https://selectstarsql.com/he/){:target="_blank"}, מקור מידע מעולה (שנכתב ע"י "[Zi Chong Kao](https://kaomorphism.com/){:target="_blank"}), והנחת תשתית לתרגומים בשפות אחרות בעתיד.
 
 
-## השתכנעתי, איך יוצרים אכם קשר??
+## השתכנעתי, איך יוצרים אתכם קשר??
 - בדוא"ל": [pitz@thepitz.io](mailto:pitz@thepitz.io)
 - בצוויצר: [@pitz_the](https://twitter.com/pitz_the)
 - עם האייקון שמימין.

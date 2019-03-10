@@ -251,8 +251,8 @@ td, th { padding: 0; }
 
 .highlight { background-color: #f8f8f8; }
 
+body { font-family: 'Helvetica Neue', Helvetica, Arial, serif; font-size: 15px; font-weight: 400; line-height: 1.5; color: #666; background: #fafafa url(../images/body-bg.jpg) 0 0 repeat; text-align:right;}
 /* LAYOUT STYLES */
-body { font-family: 'Helvetica Neue', Helvetica, Arial, serif; font-size: 15px; font-weight: 400; line-height: 1.5; color: #666; background: #fafafa url(assets/images/body-bg.jpg) 0 0 repeat; }
 
 p { margin-top: 0; }
 
@@ -260,7 +260,7 @@ a { color: #2879d0; }
 
 a:hover { color: #2268b2; }
 
-header { padding-top: 40px; padding-bottom: 40px; font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; background: #2e7bcf url(assets/images/header-bg.jpg) 0 0 repeat-x; border-bottom: solid 1px #275da1; }
+header { padding-top: 40px; padding-bottom: 40px; font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; background: #2e7bcf url(../images/header-bg.jpg) 0 0 repeat-x; border-bottom: solid 1px #275da1; }
 
 header h1 { width: 540px; margin-top: 0; margin-bottom: 0.2em; font-size: 72px; font-weight: normal; line-height: 1; color: #fff; letter-spacing: -1px; }
 
@@ -274,13 +274,13 @@ header h2 { width: 540px; margin-top: 0; margin-bottom: 0; font-size: 26px; font
 
 #main-content img { max-width: 100%; }
 
-aside#sidebar { float: left; width: 200px; min-height: 504px; padding-right: 20px; font-size: 12px; line-height: 1.3; background: transparent url(assets/images/sidebar-bg.jpg) 0 0 no-repeat; }
+aside#sidebar { float: left; width: 200px; min-height: 504px; padding-right: 20px; font-size: 12px; line-height: 1.3; background: transparent url(../images/sidebar-bg.jpg) 0 0 no-repeat; }
 
 aside#sidebar p.repo-owner, aside#sidebar p.repo-owner a { font-weight: bold; }
 
 #downloads { margin-bottom: 40px; }
 
-a.button { width: 134px; height: 58px; padding-top: 22px; padding-right: 68px; padding-left: 40px; font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; font-size: 23px; line-height: 1.2; color: #fff; }
+a.button { width: 134px; height: 58px; padding-top: 22px; padding-right: 68px; padding-left: 40px; font-family: 'Architects Daughter', 'Helvetica Neue', Helvetica, Arial, serif; font-size: 23px; line-height: 1.2; color: #fff;     box-sizing: content-box;}
 
 a.button small { display: block; font-size: 11px; }
 
