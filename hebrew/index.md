@@ -37,7 +37,7 @@ permalink: /hebrew/
 ## אז מה כבר עשינו ועם מי...?
 * משימות פיתוח ממוקדות, בהתאם לשיטת הקפקה שלנו, לשיפור עיבוד טקסטים בשפה העברית עבור [ZenCity](https://zencity.io){:target="_blank"}.
 * פיתוח מנגנון לזיהוי ישויות דומות וקשורות על פי מאפיינים כמותניים ואיכותניים בפרוייקט [מפתח התקציב](https://Obudget.org){:target="_blank"}. (בתהליך...)
-* פיתוח web בסיסי ועיבוד שפה עבור [CrowdAction](http://crowdaction.co){:target="_blank"}. (בתהליך...)
+* פיתוח web בסיסי ועיבוד שפה עבור [CrowdAction](http://crowdaction.co){:target="_blank"}.
 * תרגום לעברית של [Select Star Sql](https://selectstarsql.com/he/){:target="_blank"}, מקור מידע מעולה (שנכתב ע"י "[Zi Chong Kao](https://kaomorphism.com/){:target="_blank"}), והנחת תשתית לתרגומים בשפות אחרות בעתיד.
 
 

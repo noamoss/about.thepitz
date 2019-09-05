@@ -32,7 +32,7 @@ The market is full of great digital products and service providers. The ongoing 
 ## Show me some examples...
 * Apply the JIJO method for Hebrew Natural Language Processing analysis for [ZenCity](https://zencity.io){:target="_blank"}.
 * Build a mechanism to identify similar/relevant entities in the [Obudget.org](https://Obudget.org){:target="_blank"}   (covering the Israeli national budget data ecosystem), based on quantitative and qualitative properties. (In progress..)
-* Basic web development and NLP for [CrowdAction](http://crowdaction.co){:target="_blank"}. (In progress..)
+* Basic web development and NLP for [CrowdAction](http://crowdaction.co){:target="_blank"}.
 * Translated [Select Star Sql](https://selectstarsql.com/he/){:target="_blank"}, a great resource to Hebrew (made by [Zi Chong Kao](https://kaomorphism.com/){:target="_blank"}), setup for future RTL/LTR interface translations.
 
 ## Convinced, how do I contact you?
