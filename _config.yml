@@ -1,5 +1,5 @@
 theme: jekyll-theme-architect
-title: ThePitz.io
+title: ThePitz.studio
 exclude: [vendor]
 
 plugins:
@@ -7,17 +7,12 @@ plugins:
 # Google Analytics
 google_analytics: UA-126616292-1
 
-url: https://thepitz.io/
+url: https://about.thepitz.studio/
 baseurl: ''
 author: Noam Castel
-
-twitter:
-  username: pitz_the
-  card: summary
 
 social:
   name: Noam Castel
   links:
-        - https://twitter.com/noamoss
         - https://www.linkedin.com/in/noam-castel-036976b
         - https://github.com/noamoss
