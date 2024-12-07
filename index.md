@@ -1,41 +1,39 @@
 ---
-description: modest digital solutions for the real world.
+description: Thoughtful AI-driven solutions for real-world challenges.
 lang: en_US
 ---
 
+# Who am I
 
-# Who are we
+Hello! I'm [Noam](https://il.linkedin.com/in/noam-castel-036976b), a technologist specializing in AI-driven solutions and technological project management. With years of experience leading innovative projects, I combine strategic thinking with hands-on expertise to deliver impactful solutions that make a difference.
 
-Got me. it is [just me](https://il.linkedin.com/in/noam-castel-036976b) for now.
+## What do I offer?
 
-## What do we offer?
+In today’s digital landscape the cost of tech innovation can be daunting, and no solution is ever truly perfect. My approach balances pragmatism with innovation to deliver effective solutions tailored to your needs.
 
-The market is full of great digital products and service providers. The ongoing changes dominate the changing requirements from digital tools in any fields. There is just one big problem - technology has a cost, and its solutions are never perfect. In a positive scenario - an excellent technological solution triggers the user/client's appetite for more (costly) features. On the other hand, many other times we find ourselves unhappy with the result of an expensive and costly
+## My Methodology: Pragmatic Innovation
 
-## Our Method - JIJO (or, think tiny!)
+I believe in crafting solutions that align with real-world needs, resources, and constraints. Here's how I work:
 
-**JIJO (Jump In Jump Out)** Means we will not provide large plans with high price offers. We will spend some time getting to know the human (user) need and try to come to relatively cheap and straightforward solutions. It might not be perfect, but it must have a beneficial effect - otherwise, we will won't make an offer.
+- **Jump In, Jump Out (JIJO)**: I prioritize lightweight, cost-effective solutions that deliver immediate impact. Instead of lengthy plans and bloated budgets, I focus on understanding your needs and delivering practical results quickly.
+- **Iterative Problem-Solving**: Technology doesn’t have to be a monolith. My process involves small, iterative steps to tackle challenges effectively without overcommitting resources.
+- **Open Collaboration**: Transparency and teamwork are at the core of everything I do. Together, we’ll find solutions that work for you.
 
-## Yea.. but what do we offer?
+## Services Offered
 
-- **Machine Learning, Deep Learning, Natural Language Processing, and Data Science Basics**: Wow - this is a long list of buzzwords, isn't it? The truth is that we are in the process of professionalizing in these exciting fields. Yes, you read it right - we are not there yet. We believe that practice is the right path for specialization, so while we already have the basic understanding and working on strengthening ourselves in these fields - we will be excited hearing about your ideas and think together of ways for a starter.
+- **AI & Data Science Expertise**:  Design and implement systems that unlock actionable insights from your data.
 
-- **Quick Scripts and Web Developments**: we won't build you a fancy and shiny website, but we will quickly (and cheaply) provide tailored solutions.
+- **Custom AI Projects**:  Tailored AI solutions that meet your unique business goals.
 
-- **Open source tools introduction and user training**: We believe in the Open Source Way. That's why our first choice would be investigating for relevant projects to answer your needs. We will also offer a lower price if you approve of publishing it under [an Open Source License](https://opensource.org/licenses), and by that let other to enjoy the code base, and yourself to enjoy potential benefits of common goods.
+- **Quick Web & Automation Solutions**: provide fast, cost-efficient solutions to support your operations.
 
-- **Site SEO 101**: There are many experts around promising to push your site to the top of the leading search results list. We won't guarantee that. We assume that your site's content and its usability are the main factors for its success. It does not mean you should not care at all of SEO - but that it should not take too much effort to check and create a basic checklist of both technical recommended actions and content management updates to support it. The difference, again, is the scope of the audit process and the expected follow-up recommendations.
+- **Open Source Integration & Training**: leverage existing open-source projects to meet your needs, lower your costs and contribute to the broader community.
 
-- **Site Accessibility 101**: we support the increasing awareness of the need to enable people with disabilities taking part in the digital arena. We also acknowledge the fact it is not always straightforward and might require more resources to follow the [common standards](https://www.w3.org/TR/WCAG20/) in the field. We could help you understand where does your site stands regarding these standards and recommend what the missing practices of your current website are. Even better, we
+- **AI Product Development**: Need help integrating AI into your product? I can guide you through the process, from concept to deployment, ensuring it aligns with your strategic objectives.
 
+## Let’s Talk
 
-## Show me some examples...
-* Apply the JIJO method for Hebrew Natural Language Processing analysis for [ZenCity](https://zencity.io){:target="_blank"}.
-* Build a mechanism to identify similar/relevant entities in the [Obudget.org](https://Obudget.org){:target="_blank"}   (covering the Israeli national budget data ecosystem), based on quantitative and qualitative properties. (In progress..)
-* Basic web development and NLP for [CrowdAction](http://crowdaction.co){:target="_blank"}.
-* Translated [Select Star Sql](https://selectstarsql.com/he/){:target="_blank"}, a great resource to Hebrew (made by [Zi Chong Kao](https://kaomorphism.com/){:target="_blank"}), setup for future RTL/LTR interface translations.
+Whether you’re looking for a strategic partner for your next big AI project or need fast, effective solutions to specific challenges, I’d love to hear from you. Let’s create something impactful together.
 
-## Convinced, how do I contact you?
-- By email: [pitz@thepitz.io](mailto:pitz@thepitz.io)
-- On twitter: [@pitz_the](https://twitter.com/pitz_the)
-- Leave a message via site (see the envelope icon at the bottom-right?)
+- Email: [noam@thepitz.studio](mailto:noam@thepitz.studio)
+- Leave a message via the site (see the envelope icon at the bottom-right?)
