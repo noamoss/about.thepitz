@@ -1,31 +1,34 @@
 // Initialize GlideJS carousel
 const glide = new Glide('.glide', {
   type: 'carousel',
-  startAt: 1,
+  startAt: 0,
   perView: 1,
-  autoplay: 4000,
+  autoplay: 5000,
   hoverpause: true,
-  gap: 0,
+  gap: 20,
   peek: {
-    before: 15,
-    after: 15
+    before: 0,
+    after: 0
   },
-  animationDuration: 500,
+  animationDuration: 600,
   animationTimingFunc: 'cubic-bezier(0.25, 0.46, 0.45, 0.94)',
   rewind: true,
-  rewindDuration: 500,
   loop: false,
+  keyboard: true,
+  focusAt: 'center',
   breakpoints: {
     768: {
+      gap: 15,
       peek: {
-        before: 12,
-        after: 12
+        before: 0,
+        after: 0
       }
     },
     480: {
+      gap: 10,
       peek: {
-        before: 8,
-        after: 8
+        before: 0,
+        after: 0
       }
     }
   }
@@ -35,7 +38,7 @@ glide.mount();
 
 // All transitions now use consistent timing for uniform behavior
 
-// Add smooth scrolling for anchor links
+// Add smooth scrolling for anchor links with analytics tracking
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
   anchor.addEventListener('click', function (e) {
     e.preventDefault();
@@ -45,6 +48,15 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         behavior: 'smooth',
         block: 'start'
       });
+      
+      // Track internal link clicks
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click', {
+          event_category: 'Navigation',
+          event_label: this.getAttribute('href'),
+          value: 1
+        });
+      }
     }
   });
 });
@@ -63,4 +75,77 @@ document.addEventListener('DOMContentLoaded', function() {
       card.style.transform = 'translateY(0)';
     }, index * 200);
   });
+  
+  // Track CTA button clicks
+  const ctaButton = document.querySelector('.cta-button');
+  if (ctaButton && typeof gtag !== 'undefined') {
+    ctaButton.addEventListener('click', function() {
+      gtag('event', 'click', {
+        event_category: 'CTA',
+        event_label: 'Schedule Consultation',
+        value: 1
+      });
+    });
+  }
+  
+  // Track service card interactions
+  const serviceLinks = document.querySelectorAll('.card a');
+  serviceLinks.forEach(link => {
+    if (typeof gtag !== 'undefined') {
+      link.addEventListener('click', function() {
+        const serviceName = this.closest('.card').querySelector('h3').textContent;
+        gtag('event', 'click', {
+          event_category: 'Service',
+          event_label: serviceName,
+          value: 1
+        });
+      });
+    }
+  });
+  
+  // Track contact link clicks
+  const contactLinks = document.querySelectorAll('.contact-link');
+  contactLinks.forEach(link => {
+    if (typeof gtag !== 'undefined') {
+      link.addEventListener('click', function() {
+        gtag('event', 'click', {
+          event_category: 'Contact',
+          event_label: this.textContent,
+          value: 1
+        });
+      });
+    }
+  });
+  
+  // Add animation to metrics - Commented out for now
+  /*
+  const metrics = document.querySelectorAll('.metric-number');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        const target = entry.target;
+        const finalValue = target.textContent;
+        const numericValue = parseInt(finalValue);
+        
+        if (!isNaN(numericValue)) {
+          let currentValue = 0;
+          const increment = numericValue / 30;
+          const timer = setInterval(() => {
+            currentValue += increment;
+            if (currentValue >= numericValue) {
+              currentValue = numericValue;
+              clearInterval(timer);
+            }
+            target.textContent = Math.floor(currentValue) + (finalValue.includes('+') ? '+' : finalValue.includes('%') ? '%' : '');
+          }, 50);
+        }
+        observer.unobserve(target);
+      }
+    });
+  }, { threshold: 0.5 });
+  
+  metrics.forEach(metric => {
+    observer.observe(metric);
+  });
+  */
 }); 
