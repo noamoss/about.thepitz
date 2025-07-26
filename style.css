@@ -1,0 +1,352 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.hero-background {
+  background: url('assets/background.png') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.9);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  gap: 0.8rem;
+}
+
+
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  color: #2c3e50;
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  font-size: 0.9rem;
+  color: #7f8c8d;
+  margin-bottom: 0.8rem;
+  max-width: 600px;
+  font-weight: 400;
+}
+
+.glide {
+  max-width: 380px;
+  width: 100%;
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+  position: relative;
+  /* Smooth loop transitions */
+  transform-style: preserve-3d;
+  backface-visibility: hidden;
+}
+
+.glide::before,
+.glide::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 15px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.glide::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
+}
+
+.glide::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 100%);
+}
+
+.glide__slides {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.glide__slide {
+  display: flex;
+  justify-content: center;
+  padding: 0.8rem;
+  transition: all 0.4s ease;
+}
+
+.glide__slide--active {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.glide__slide--clone {
+  opacity: 0.6;
+  transform: scale(0.95);
+  filter: blur(2px);
+}
+
+/* All slides now use the same transition timing for consistency */
+
+.glide__slide--active .card {
+  transform: scale(1);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+  opacity: 1;
+  filter: blur(0);
+}
+
+.glide__slide:not(.glide__slide--active) .card {
+  opacity: 0.6;
+  transform: scale(0.95);
+  filter: blur(2px);
+}
+
+/* Ensure all cards maintain consistent base sizing */
+.glide__slide .card {
+  transform-origin: center center;
+  will-change: transform, opacity, filter;
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  padding: 1rem;
+  width: 240px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+  border: 1px solid rgba(255,255,255,0.2);
+  transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              box-shadow 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              opacity 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94), 
+              filter 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.15);
+}
+
+.icon {
+  height: 40px;
+  margin-bottom: 0.8rem;
+  opacity: 0.8;
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.card p {
+  color: #7f8c8d;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  font-size: 0.85rem;
+}
+
+.card a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.card a:hover {
+  color: #2980b9;
+}
+
+[data-glide-el="controls"] {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+[data-glide-el="controls"] button {
+  font-size: 1.2rem;
+  background: rgba(52, 152, 219, 0.1);
+  border: 2px solid #3498db;
+  color: #3498db;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-glide-el="controls"] button:hover {
+  background: #3498db;
+  color: white;
+}
+
+.contact-section {
+  max-width: 500px;
+  margin-top: 0.3rem;
+  padding: 0.8rem;
+  background: rgba(255,255,255,0.8);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.3);
+}
+
+.contact-section h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.contact-section p {
+  color: #7f8c8d;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+  font-size: 0.85rem;
+}
+
+.contact-info {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: inline-block;
+  background: #3498db;
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+  font-size: 0.75rem;
+}
+
+.contact-link:hover {
+  background: #2980b9;
+}
+
+.linkedin-link {
+  background: #0077b5;
+}
+
+.linkedin-link:hover {
+  background: #005885;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .tagline {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .card {
+    width: 280px;
+    padding: 1.5rem;
+  }
+  
+  .contact-section {
+    padding: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .glide {
+    max-width: 400px;
+    margin-bottom: 1.5rem;
+  }
+  
+  .glide::before,
+  .glide::after {
+    width: 12px;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-link {
+    width: 200px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 1rem;
+    justify-content: flex-start;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .tagline {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+  }
+  
+  .card {
+    width: 260px;
+    padding: 1rem;
+  }
+  
+  .glide__slide {
+    padding: 0.5rem;
+  }
+  
+  .glide {
+    max-width: 300px;
+    margin-bottom: 1rem;
+  }
+  
+  .glide::before,
+  .glide::after {
+    width: 8px;
+  }
+  
+  .contact-section {
+    padding: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .contact-info {
+    gap: 0.5rem;
+  }
+  
+  .contact-link {
+    width: 180px;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+  }
+} 

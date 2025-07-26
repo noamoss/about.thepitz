@@ -1,0 +1,29 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="customGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e74c3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c0392b;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Gear -->
+  <circle cx="24" cy="24" r="16" fill="none" stroke="url(#customGrad)" stroke-width="2"/>
+  
+  <!-- Gear teeth -->
+  <rect x="22" y="8" width="4" height="8" fill="url(#customGrad)"/>
+  <rect x="22" y="32" width="4" height="8" fill="url(#customGrad)"/>
+  <rect x="8" y="22" width="8" height="4" fill="url(#customGrad)"/>
+  <rect x="32" y="22" width="8" height="4" fill="url(#customGrad)"/>
+  
+  <!-- Inner circle -->
+  <circle cx="24" cy="24" r="6" fill="url(#customGrad)"/>
+  
+  <!-- Center dot -->
+  <circle cx="24" cy="24" r="2" fill="white"/>
+  
+  <!-- Circuit lines -->
+  <line x1="24" y1="8" x2="24" y2="4" stroke="url(#customGrad)" stroke-width="1"/>
+  <line x1="24" y1="40" x2="24" y2="44" stroke="url(#customGrad)" stroke-width="1"/>
+  <line x1="8" y1="24" x2="4" y2="24" stroke="url(#customGrad)" stroke-width="1"/>
+  <line x1="40" y1="24" x2="44" y2="24" stroke="url(#customGrad)" stroke-width="1"/>
+</svg>
