@@ -134,6 +134,10 @@ body, html {
     transition: none;
   }
   
+  .chat-link::before {
+    content: "Chat: ";
+  }
+  
   .skip-link {
     transition: none;
   }
@@ -441,6 +445,24 @@ body, html {
 .linkedin-link:focus {
   background: #005885;
   outline: 3px solid #0077b5;
+  outline-offset: 2px;
+}
+
+.chat-link {
+  background: #27ae60;
+  position: relative;
+}
+
+.chat-link::before {
+  content: "💬";
+  margin-right: 0.3rem;
+  font-size: 0.8rem;
+}
+
+.chat-link:hover,
+.chat-link:focus {
+  background: #229954;
+  outline: 3px solid #27ae60;
   outline-offset: 2px;
 }
 

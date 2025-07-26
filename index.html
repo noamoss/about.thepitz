@@ -4,14 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>The Pitz Studio - AI-Powered Digital Solutions | Generative AI Training & LLM Strategy</title>
+  
+  <!-- Critical CSS Inline to prevent FOUC -->
+  <style>
+    /* Critical styles to prevent layout shift */
+    body, html { margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; }
+    .skip-link { position: absolute; top: -40px; left: 6px; background: #667eea; color: white; padding: 8px; text-decoration: none; z-index: 1000; }
+    .skip-link:focus { top: 6px; }
+    .cta-button { display: inline-block; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4); }
+    .cta-button:hover { transform: translateY(-2px); box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6); }
+    .glide__bullets { display: flex; justify-content: center; gap: 0.5rem; margin-top: 1rem; }
+    .glide__bullet { width: 12px; height: 12px; border-radius: 50%; background: rgba(255, 255, 255, 0.5); border: none; cursor: pointer; transition: background 0.3s ease; }
+    .glide__bullet--active { background: white; }
+    .glide__bullet:hover { background: rgba(255, 255, 255, 0.8); }
+  </style>
+  
   <!-- Resource Hints for Performance -->
   <link rel="preconnect" href="https://www.googletagmanager.com" />
   <link rel="preconnect" href="https://www.google-analytics.com" />
   <link rel="dns-prefetch" href="https://www.linkedin.com" />
   
-  <!-- Critical CSS -->
-  <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="glide/glide.core.min.css" />
+  <!-- External CSS with fallback -->
+  <link rel="stylesheet" href="style.css?v=1.1" onerror="console.error('Failed to load style.css')" />
+  <link rel="stylesheet" href="glide/glide.core.min.css?v=1.1" onerror="console.error('Failed to load glide CSS')" />
   <link rel="icon" type="image/png" href="assets/favicon.png" />
   <link rel="manifest" href="manifest.json" />
   
@@ -120,7 +135,13 @@
     },
     "sameAs": [
       "https://www.linkedin.com/in/noam-castel/"
-    ]
+    ],
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "availableLanguage": "English",
+      "url": "https://tawk.to/thepitz"
+    }
   }
   </script>
 </head>
@@ -241,6 +262,7 @@
           <meta itemprop="worksFor" content="The Pitz Studio" />
           <a href="mailto:noam@thepitz.studio" class="contact-link" itemprop="email">noam@thepitz.studio</a>
           <a href="https://www.linkedin.com/in/noam-castel/" class="contact-link linkedin-link" target="_blank" rel="noopener" itemprop="sameAs">LinkedIn</a>
+          <a href="https://tawk.to/thepitz" class="contact-link chat-link" target="_blank" rel="noopener" aria-label="Start a chat conversation">Chat</a>
         </div>
       </section>
     </div>
@@ -265,7 +287,7 @@
     });
   </script>
   
-  <script src="glide/glide.min.js"></script>
-  <script src="script.js"></script>
+  <script src="glide/glide.min.js?v=1.1"></script>
+  <script src="script.js?v=1.1"></script>
 </body>
 </html> 
