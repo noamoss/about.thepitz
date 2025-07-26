@@ -1,0 +1,36 @@
+<svg width="48" height="48" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="digitalGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9b59b6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8e44ad;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- Digital device/screen -->
+  <rect x="10" y="14" width="28" height="20" fill="none" stroke="url(#digitalGrad)" stroke-width="2" rx="2"/>
+  
+  <!-- Screen content -->
+  <rect x="12" y="16" width="24" height="16" fill="url(#digitalGrad)" opacity="0.1"/>
+  
+  <!-- App icons -->
+  <rect x="14" y="18" width="4" height="4" fill="url(#digitalGrad)" rx="1"/>
+  <rect x="20" y="18" width="4" height="4" fill="url(#digitalGrad)" rx="1"/>
+  <rect x="26" y="18" width="4" height="4" fill="url(#digitalGrad)" rx="1"/>
+  <rect x="32" y="18" width="4" height="4" fill="url(#digitalGrad)" rx="1"/>
+  
+  <!-- Content lines -->
+  <line x1="14" y1="26" x2="34" y2="26" stroke="url(#digitalGrad)" stroke-width="1"/>
+  <line x1="14" y1="28" x2="30" y2="28" stroke="url(#digitalGrad)" stroke-width="1"/>
+  <line x1="14" y1="30" x2="26" y2="30" stroke="url(#digitalGrad)" stroke-width="1"/>
+  
+  <!-- Stand/base -->
+  <rect x="22" y="34" width="4" height="6" fill="url(#digitalGrad)"/>
+  <rect x="20" y="40" width="8" height="2" fill="url(#digitalGrad)" rx="1"/>
+  
+  <!-- Connection dots -->
+  <circle cx="16" cy="12" r="1" fill="url(#digitalGrad)"/>
+  <circle cx="20" cy="12" r="1" fill="url(#digitalGrad)"/>
+  <circle cx="24" cy="12" r="1" fill="url(#digitalGrad)"/>
+  <circle cx="28" cy="12" r="1" fill="url(#digitalGrad)"/>
+  <circle cx="32" cy="12" r="1" fill="url(#digitalGrad)"/>
+</svg>

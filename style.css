@@ -1,0 +1,650 @@
+body, html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: #667eea;
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+  transition: top 0.3s;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+.hero-background {
+  background: url('assets/optimized/background.webp') no-repeat center center;
+  background-size: cover;
+  min-height: 100vh;
+  position: relative;
+}
+
+.overlay {
+  background-color: rgba(255, 255, 255, 0.85);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1rem;
+  box-sizing: border-box;
+  gap: 1rem;
+}
+
+
+
+.title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.2rem;
+  color: #2c3e50;
+  text-transform: lowercase;
+  letter-spacing: -0.02em;
+}
+
+.tagline {
+  font-size: 1.1rem;
+  color: #2c3e50;
+  margin-bottom: 0.5rem;
+  max-width: 600px;
+  font-weight: 600;
+}
+
+.sub-tagline {
+  font-size: 0.9rem;
+  color: #5a6c7d;
+  margin-bottom: 1.2rem;
+  max-width: 600px;
+  font-weight: 400;
+  line-height: 1.5;
+}
+
+.cta-section {
+  margin-bottom: 2rem;
+}
+
+.cta-button {
+  display: inline-block;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  border: none;
+  cursor: pointer;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cta-button {
+    transition: none;
+  }
+  
+  .cta-button:hover,
+  .cta-button:focus {
+    transform: none;
+  }
+  
+  .card {
+    transition: none;
+  }
+  
+  .card:hover {
+    transform: none;
+  }
+  
+  .icon {
+    transition: none;
+  }
+  
+  .card:hover .icon {
+    transform: none;
+  }
+  
+  .glide__bullet {
+    transition: none;
+  }
+  
+  .glide__bullet:hover,
+  .glide__bullet:focus {
+    transform: none;
+  }
+  
+  [data-glide-el="controls"] button {
+    transition: none;
+  }
+  
+  .contact-link {
+    transition: none;
+  }
+  
+  .chat-link::before {
+    content: "Chat: ";
+  }
+  
+  .skip-link {
+    transition: none;
+  }
+}
+
+.cta-button:hover,
+.cta-button:focus {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4190 100%);
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
+.glide {
+  max-width: 380px;
+  width: 100%;
+  margin-bottom: 1.5rem;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Removed gradient overlays to reduce visual noise */
+
+.glide__slides {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.glide__slide {
+  display: flex;
+  justify-content: center;
+  padding: 0.8rem;
+  transition: all 0.4s ease;
+}
+
+.glide__slide {
+  opacity: 1;
+}
+
+.glide__slide .card {
+  opacity: 1;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 1.2rem;
+  width: 240px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+  border: 1px solid rgba(0,0,0,0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+}
+
+.icon {
+  width: 80px;
+  height: 80px;
+  margin-bottom: 1rem;
+  opacity: 0.9;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .icon {
+  opacity: 1;
+}
+
+.card h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.card p {
+  color: #5a6c7d;
+  margin-bottom: 0.8rem;
+  line-height: 1.4;
+  font-size: 0.85rem;
+}
+
+.card a {
+  color: #3498db;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.card a:hover,
+.card a:focus {
+  color: #2980b9;
+  outline: 2px solid #3498db;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+[data-glide-el="controls"] {
+  margin-top: 0.8rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+[data-glide-el="controls"] button {
+  font-size: 1.2rem;
+  background: rgba(52, 152, 219, 0.1);
+  border: 2px solid #3498db;
+  color: #3498db;
+  cursor: pointer;
+  padding: 0.4rem 0.8rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+[data-glide-el="controls"] button:hover,
+[data-glide-el="controls"] button:focus {
+  background: #3498db;
+  color: white;
+  outline: 3px solid #3498db;
+  outline-offset: 2px;
+}
+
+.glide__bullets {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 1rem;
+}
+
+.glide__bullet {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(44, 62, 80, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.glide__bullet--active {
+  background: #667eea;
+  transform: scale(1.2);
+}
+
+.glide__bullet:hover,
+.glide__bullet:focus {
+  background: rgba(44, 62, 80, 0.6);
+  transform: scale(1.1);
+  outline: 2px solid #667eea;
+  outline-offset: 1px;
+}
+
+/* Social Proof Section - Commented out for now
+.social-proof-section {
+  max-width: 600px;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.9);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,0.3);
+  text-align: center;
+}
+
+.social-proof-section h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.2rem;
+  color: #2c3e50;
+}
+
+.metrics-grid {
+  display: flex;
+  justify-content: space-around;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
+}
+
+.metric {
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+}
+
+.metric-number {
+  font-size: 2rem;
+  font-weight: 700;
+  color: #667eea;
+  margin-bottom: 0.3rem;
+}
+
+.metric-label {
+  font-size: 0.8rem;
+  color: #7f8c8d;
+  font-weight: 500;
+}
+
+.testimonials {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.testimonial {
+  background: rgba(102, 126, 234, 0.05);
+  border-radius: 12px;
+  padding: 1.2rem;
+  border-left: 4px solid #667eea;
+}
+
+.testimonial-content p {
+  font-style: italic;
+  color: #2c3e50;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+  font-size: 0.9rem;
+}
+
+.testimonial-author {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.testimonial-author strong {
+  color: #2c3e50;
+  font-size: 0.9rem;
+}
+
+.testimonial-author span {
+  color: #7f8c8d;
+  font-size: 0.8rem;
+}
+*/
+
+.contact-section {
+  max-width: 500px;
+  margin-top: 1rem;
+  padding: 1.5rem;
+  background: rgba(255,255,255,0.9);
+  border-radius: 12px;
+  border: 1px solid rgba(0,0,0,0.05);
+}
+
+.contact-section h2 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #2c3e50;
+}
+
+.contact-section p {
+  color: #5a6c7d;
+  margin-bottom: 0.8rem;
+  line-height: 1.5;
+  font-size: 0.85rem;
+}
+
+.contact-info {
+  margin-top: 0.8rem;
+  display: flex;
+  gap: 0.6rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.contact-link {
+  display: inline-block;
+  background: #3498db;
+  color: white;
+  padding: 0.5rem 0.8rem;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+  font-size: 0.75rem;
+}
+
+.contact-link:hover,
+.contact-link:focus {
+  background: #2980b9;
+  outline: 3px solid #3498db;
+  outline-offset: 2px;
+}
+
+.linkedin-link {
+  background: #0077b5;
+}
+
+.linkedin-link:hover,
+.linkedin-link:focus {
+  background: #005885;
+  outline: 3px solid #0077b5;
+  outline-offset: 2px;
+}
+
+.chat-link {
+  background: #27ae60;
+  position: relative;
+}
+
+.chat-link::before {
+  content: "💬";
+  margin-right: 0.3rem;
+  font-size: 0.8rem;
+}
+
+.chat-link:hover,
+.chat-link:focus {
+  background: #229954;
+  outline: 3px solid #27ae60;
+  outline-offset: 2px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .title {
+    font-size: 2.5rem;
+  }
+  
+  .tagline {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .sub-tagline {
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+  }
+  
+  .cta-button {
+    padding: 0.9rem 1.8rem;
+    font-size: 0.95rem;
+  }
+  
+  .card {
+    width: 280px;
+    padding: 1.5rem;
+  }
+  
+  .icon {
+    width: 70px;
+    height: 70px;
+  }
+  
+  /* Social Proof Section - Commented out for now
+  .social-proof-section {
+    padding: 1.2rem;
+    margin: 1rem 0;
+  }
+  
+  .metrics-grid {
+    gap: 0.8rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .metric-number {
+    font-size: 1.8rem;
+  }
+  
+  .testimonial {
+    padding: 1rem;
+  }
+  */
+  
+  .contact-section {
+    padding: 1.5rem;
+    margin-top: 0.5rem;
+  }
+  
+  .glide {
+    max-width: 400px;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Removed gradient overlays */
+  
+  .glide__bullets {
+    margin-top: 0.8rem;
+  }
+  
+  .glide__bullet {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .contact-info {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .contact-link {
+    width: 200px;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .overlay {
+    padding: 1rem;
+    justify-content: flex-start;
+  }
+  
+  .title {
+    font-size: 2rem;
+    margin-top: 1rem;
+  }
+  
+  .tagline {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .sub-tagline {
+    font-size: 0.8rem;
+    margin-bottom: 0.8rem;
+  }
+  
+  .cta-button {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
+  }
+  
+  .card {
+    width: 260px;
+    padding: 1rem;
+  }
+  
+  .icon {
+    width: 60px;
+    height: 60px;
+  }
+  
+  .glide__slide {
+    padding: 0.5rem;
+  }
+  
+  .glide {
+    max-width: 300px;
+    margin-bottom: 1rem;
+  }
+  
+  /* Removed gradient overlays */
+  
+  .glide__bullets {
+    margin-top: 0.6rem;
+  }
+  
+  .glide__bullet {
+    width: 6px;
+    height: 6px;
+  }
+  
+  /* Social Proof Section - Commented out for now
+  .social-proof-section {
+    padding: 1rem;
+    margin: 0.8rem 0;
+  }
+  
+  .metrics-grid {
+    gap: 0.6rem;
+    margin-bottom: 1.2rem;
+  }
+  
+  .metric {
+    min-width: 100px;
+  }
+  
+  .metric-number {
+    font-size: 1.6rem;
+  }
+  
+  .testimonial {
+    padding: 0.8rem;
+  }
+  
+  .testimonial-content p {
+    font-size: 0.85rem;
+  }
+  */
+  
+  .contact-section {
+    padding: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .contact-info {
+    gap: 0.5rem;
+  }
+  
+  .contact-link {
+    width: 180px;
+    padding: 0.7rem 1rem;
+    font-size: 0.85rem;
+  }
+} 
