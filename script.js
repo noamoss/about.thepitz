@@ -1,27 +1,3 @@
-// CSS Fallback - Apply critical styles if external CSS fails
-function applyFallbackStyles() {
-  const style = document.createElement('style');
-  style.textContent = `
-    .glide { position: relative; width: 100%; box-sizing: border-box; }
-    .glide * { box-sizing: inherit; }
-    .glide__track { overflow: hidden; }
-    .glide__slides { position: relative; width: 100%; list-style: none; backface-visibility: hidden; transform-style: preserve-3d; touch-action: pan-Y; overflow: hidden; margin: 0; padding: 0; white-space: nowrap; display: flex; flex-wrap: nowrap; will-change: transform; }
-    .glide__slide { width: 100%; height: 100%; flex-shrink: 0; white-space: normal; user-select: none; -webkit-touch-callout: none; -webkit-tap-highlight-color: transparent; }
-    .glide__arrows { -webkit-touch-callout: none; user-select: none; }
-    .glide__bullets { -webkit-touch-callout: none; user-select: none; }
-  `;
-  document.head.appendChild(style);
-}
-
-// Check if Glide CSS loaded properly
-setTimeout(() => {
-  const glideElement = document.querySelector('.glide');
-  if (glideElement && getComputedStyle(glideElement).position === 'static') {
-    console.warn('Glide CSS not loaded, applying fallback styles');
-    applyFallbackStyles();
-  }
-}, 1000);
-
 // Initialize GlideJS carousel
 const glide = new Glide('.glide', {
   type: 'carousel',
@@ -87,40 +63,6 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 
 // Add some interactive effects
 document.addEventListener('DOMContentLoaded', function() {
-  // Check if main CSS loaded and apply fallback if needed
-  const ctaButtonElement = document.querySelector('.cta-button');
-  if (ctaButtonElement && getComputedStyle(ctaButtonElement).background === 'rgba(0, 0, 0, 0)') {
-    console.warn('Main CSS not loaded properly, applying fallback styles');
-    const fallbackStyle = document.createElement('style');
-    fallbackStyle.textContent = `
-      .cta-button { 
-        display: inline-block !important; 
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important; 
-        color: white !important; 
-        padding: 1rem 2rem !important; 
-        border-radius: 50px !important; 
-        text-decoration: none !important; 
-        font-weight: 600 !important; 
-        font-size: 1rem !important; 
-        transition: all 0.3s ease !important; 
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4) !important; 
-      }
-      .skip-link { 
-        position: absolute !important; 
-        top: -40px !important; 
-        left: 6px !important; 
-        background: #667eea !important; 
-        color: white !important; 
-        padding: 8px !important; 
-        text-decoration: none !important; 
-        z-index: 1000 !important; 
-      }
-      .skip-link:focus { 
-        top: 6px !important; 
-      }
-    `;
-    document.head.appendChild(fallbackStyle);
-  }
   // Add fade-in animation to cards
   const cards = document.querySelectorAll('.card');
   cards.forEach((card, index) => {
