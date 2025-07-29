@@ -34,7 +34,34 @@ const glide = new Glide('.glide', {
   }
 });
 
+// Mount the carousel
 glide.mount();
+
+// Ensure bullets are properly initialized and working
+glide.on(['mount.after', 'run'], () => {
+  const bullets = document.querySelectorAll('.glide__bullet');
+  const currentIndex = glide.index;
+  
+  // Update active bullet
+  bullets.forEach((bullet, index) => {
+    bullet.classList.remove('glide__bullet--active');
+    if (index === currentIndex) {
+      bullet.classList.add('glide__bullet--active');
+    }
+  });
+});
+
+// Add manual bullet click handlers as backup
+document.addEventListener('DOMContentLoaded', () => {
+  const bullets = document.querySelectorAll('.glide__bullet');
+  
+  bullets.forEach((bullet, index) => {
+    bullet.addEventListener('click', (e) => {
+      e.preventDefault();
+      glide.go(`=${index}`);
+    });
+  });
+});
 
 // All transitions now use consistent timing for uniform behavior
 
