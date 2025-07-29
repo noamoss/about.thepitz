@@ -161,7 +161,7 @@ body, html {
   max-width: 380px;
   width: 100%;
   margin-bottom: 1.5rem;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
 }
 
@@ -171,6 +171,7 @@ body, html {
   list-style: none;
   padding: 0;
   margin: 0;
+  overflow: hidden;
 }
 
 .glide__slide {
@@ -283,6 +284,9 @@ body, html {
   justify-content: center;
   gap: 8px;
   margin-top: 1rem;
+  padding: 8px 0;
+  position: relative;
+  z-index: 10;
 }
 
 .glide__bullet {
