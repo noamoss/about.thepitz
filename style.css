@@ -74,6 +74,11 @@ body, html {
 
 .cta-section {
   margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
 .cta-button {
@@ -448,21 +453,54 @@ body, html {
   outline-offset: 2px;
 }
 
-.chat-link {
-  background: #27ae60;
-  position: relative;
+.schedule-link {
+  background: #667eea;
 }
 
-.chat-link::before {
-  content: "💬";
-  margin-right: 0.3rem;
-  font-size: 0.8rem;
+.schedule-link:hover,
+.schedule-link:focus {
+  background: #5a6fd8;
+  outline: 3px solid #667eea;
+  outline-offset: 2px;
+}
+
+.email-link {
+  background: #38b2ac;
+}
+
+.email-link:hover,
+.email-link:focus {
+  background: #319795;
+  outline: 3px solid #38b2ac;
+  outline-offset: 2px;
+}
+
+.linkedin-link {
+  background: #0077b5;
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+}
+
+.linkedin-link:hover,
+.linkedin-link:focus {
+  background: #005885;
+  outline: 3px solid #0077b5;
+  outline-offset: 2px;
+}
+
+.linkedin-icon {
+  flex-shrink: 0;
+}
+
+.chat-link {
+  background: #48bb78;
 }
 
 .chat-link:hover,
 .chat-link:focus {
-  background: #229954;
-  outline: 3px solid #27ae60;
+  background: #38a169;
+  outline: 3px solid #48bb78;
   outline-offset: 2px;
 }
 
@@ -480,6 +518,11 @@ body, html {
   .sub-tagline {
     font-size: 0.9rem;
     margin-bottom: 1rem;
+  }
+  
+  .cta-section {
+    flex-direction: column;
+    gap: 0.8rem;
   }
   
   .cta-button {
@@ -568,6 +611,11 @@ body, html {
   .sub-tagline {
     font-size: 0.8rem;
     margin-bottom: 0.8rem;
+  }
+  
+  .cta-section {
+    flex-direction: column;
+    gap: 0.6rem;
   }
   
   .cta-button {
