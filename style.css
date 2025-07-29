@@ -435,7 +435,9 @@ body, html {
 }
 
 .contact-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   background: #3498db;
   color: white;
   padding: 0.5rem 0.8rem;
@@ -444,6 +446,8 @@ body, html {
   font-weight: 500;
   transition: background 0.3s ease;
   font-size: 0.75rem;
+  text-align: center;
+  min-height: 32px;
 }
 
 .contact-link:hover,
@@ -488,8 +492,6 @@ body, html {
 
 .linkedin-link {
   background: #0077b5;
-  display: flex;
-  align-items: center;
   gap: 0.3rem;
 }
 
