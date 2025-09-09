@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>המדריך המלא לטכניקות פרומפטינג</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: The SPA is designed as a single-page, scrollable guide, progressing from foundational concepts to advanced techniques. This linear structure supports a natural learning path. The main sections are 'Core Concepts' (a grid for quick definitions) and 'Techniques' (a series of cards). A sticky side-navigation allows users to jump to any topic, while collapsible example sections within each card keep the interface clean and focused. This design was chosen for its clarity, ease of navigation, and progressive disclosure of information, making complex topics digestible for all user levels. -->
+    <!-- Visualization & Content Choices: Core concepts are presented in a 2x2 grid with icons for quick visual association. Each prompting technique is a self-contained card. Instead of charts, conceptual diagrams are created using HTML and Unicode characters to illustrate the logic of each technique (e.g., 'User -> LLM' for Zero-shot, a loop for ReAct). This avoids complex graphics while effectively communicating the core idea. Examples are hidden by default in collapsible sections to reduce initial cognitive load. This approach focuses on educational clarity and direct representation of abstract processes. Confirmed NO SVG/Mermaid. -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&display=swap');
+        body {
+            font-family: 'Assistant', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .active-nav {
+            background-color: #e0f2f1;
+            color: #00796b;
+            font-weight: 700;
+        }
+        .rtl {
+            direction: rtl;
+            text-align: right;
+        }
+        .ltr {
+            direction: ltr;
+            text-align: left;
+        }
+        pre {
+            white-space: pre-wrap;
+            word-wrap: break-word;
+        }
+    </style>
+</head>
+<body class="bg-stone-50 text-stone-800 rtl">
+
+    <div class="flex flex-col md:flex-row">
+        <nav id="sidebar" class="w-full md:w-64 bg-white border-l border-stone-200 md:sticky top-0 h-auto md:h-screen p-4 shadow-sm">
+            <h2 class="text-xl font-bold text-teal-700 mb-4">ניווט מהיר</h2>
+            <ul class="space-y-2">
+                <li><a href="#concepts" class="nav-link block p-2 rounded-md hover:bg-stone-100">מושגי יסוד</a></li>
+                <li><a href="#zero-shot" class="nav-link block p-2 rounded-md hover:bg-stone-100">Zero-Shot Prompting</a></li>
+                <li><a href="#few-shot" class="nav-link block p-2 rounded-md hover:bg-stone-100">Few-Shot Prompting</a></li>
+                <li><a href="#cot" class="nav-link block p-2 rounded-md hover:bg-stone-100">Chain-of-Thought</a></li>
+                <li><a href="#self-consistency" class="nav-link block p-2 rounded-md hover:bg-stone-100">Self-Consistency</a></li>
+                <li><a href="#react" class="nav-link block p-2 rounded-md hover:bg-stone-100">ReAct</a></li>
+                <li><a href="#rag" class="nav-link block p-2 rounded-md hover:bg-stone-100">RAG</a></li>
+                <li><a href="#meta" class="nav-link block p-2 rounded-md hover:bg-stone-100">Meta Prompting</a></li>
+            </ul>
+        </nav>
+
+        <main class="flex-1 p-6 sm:p-8 md:p-12">
+            <header class="text-center mb-12">
+                <h1 class="text-4xl md:text-5xl font-bold text-teal-800">המדריך האינטראקטיבי לטכניקות פרומפטינג</h1>
+                <p class="mt-4 text-lg text-stone-600 max-w-3xl mx-auto">
+                    גלו כיצד למקסם את הפוטנציאל של מודלי שפה גדולים (LLMs) באמצעות טכניקות הנחיה יעילות, מהבסיס ועד לרמות המתקדמות ביותר.
+                </p>
+            </header>
+
+            <section id="concepts" class="mb-16 scroll-mt-20">
+                <h2 class="text-3xl font-bold text-teal-700 border-r-4 border-teal-500 pr-4 mb-8">מושגי יסוד חיוניים</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-200">
+                        <h3 class="text-xl font-bold mb-2 flex items-center">
+                            <span class="text-2xl ml-3">🧠</span>
+                            Context (הקשר)
+                        </h3>
+                        <p class="text-stone-600">המידע הרקעי שאתם מספקים ל-LLM בתוך הפרומפט. הקשר טוב ומדויק הוא המפתח לקבלת תשובות רלוונטיות ואיכותיות, והוא "מכוונן" את המודל למשימה הספציפית.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-200">
+                        <h3 class="text-xl font-bold mb-2 flex items-center">
+                            <span class="text-2xl ml-3">🖼️</span>
+                            Context Window (חלון ההקשר)
+                        </h3>
+                        <p class="text-stone-600">כמות המידע המקסימלית (הנמדדת בדרך כלל ב"טוקנים") שהמודל יכול "לזכור" ולהתייחס אליה בנקודת זמן נתונה. כל מה שחורג מחלון ההקשר, כולל תחילת שיחה ארוכה, עלול "להישכח" על ידי המודל.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-200">
+                        <h3 class="text-xl font-bold mb-2 flex items-center">
+                            <span class="text-2xl ml-3">🛠️</span>
+                            Tools (כלים)
+                        </h3>
+                        <p class="text-stone-600">ממשקים או פונקציות חיצוניות שה-LLM יכול להפעיל כדי לקבל מידע עדכני או לבצע פעולות בעולם האמיתי. דוגמאות נפוצות הן חיפוש באינטרנט, גישה למאגר נתונים, או שליחת אימייל.</p>
+                    </div>
+                    <div class="bg-white p-6 rounded-lg shadow-md border-t-4 border-teal-200">
+                        <h3 class="text-xl font-bold mb-2 flex items-center">
+                            <span class="text-2xl ml-3">⚙️</span>
+                            Reasoning (הסקת מסקנות)
+                        </h3>
+                        <p class="text-stone-600">היכולת של המודל לנתח מידע, לפרק בעיות מורכבות לשלבים, ולבצע שרשרת של צעדים לוגיים כדי להגיע לתשובה. טכניקות מתקדמות נועדו לשפר ולכוון את יכולת ה-Reasoning של המודל.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <div id="techniques" class="space-y-8">
+
+                <article id="zero-shot" class="bg-white p-6 rounded-lg shadow-lg scroll-mt-20">
+                    <h3 class="text-2xl font-bold text-teal-700 mb-3">Zero-Shot Prompting</h3>
+                    <p class="text-stone-600 mb-4">הצורה הבסיסית ביותר של הנחיה, בה מבקשים מהמודל לבצע משימה מבלי לספק לו דוגמאות כלשהן. השיטה מסתמכת על הידע והיכולות הכלליות שהמודל רכש במהלך האימון שלו.</p>
+                    <div class="bg-stone-100 p-4 rounded-md mb-4">
+                        <p class="font-semibold mb-2">אילוסטרציה ויזואלית:</p>
+                        <p class="text-sm text-stone-700">דמיינו שאתם נותנים הוראה ישירה ופשוטה לאדם. אין צורך בהדגמה, רק בבקשה ברורה.</p>
+                        <div class="mt-2 text-center font-mono text-teal-600">משתמש ⬅️ בקשה ישירה ⬅️ LLM</div>
+                    </div>
+                    <details class="group">
+                        <summary class="cursor-pointer font-semibold text-teal-600 hover:text-teal-800">הצג/הסתר דוגמאות</summary>
+                        <div class="mt-4 space-y-3 rtl">
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">תרגם את הטקסט הבא מאנגלית לעברית: "Good morning, Jerusalem."</pre>
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">סכם את עיקרי תורת היחסות הכללית בשלושה משפטים.</pre>
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">כתוב שיר קצר על הסתיו בירושלים.</pre>
+                        </div>
+                    </details>
+                </article>
+
+                <article id="few-shot" class="bg-white p-6 rounded-lg shadow-lg scroll-mt-20">
+                    <h3 class="text-2xl font-bold text-teal-700 mb-3">Few-Shot Prompting</h3>
+                    <p class="text-stone-600 mb-4">טכניקה בה מספקים ל-LLM מספר דוגמאות (shots) של הקלט והפלט הרצויים לפני שמציגים לו את המשימה האמיתית. הדוגמאות עוזרות למודל "ללמוד" את התבנית, הסגנון או הפורמט הנדרש לתשובה.</p>
+                    <div class="bg-stone-100 p-4 rounded-md mb-4">
+                        <p class="font-semibold mb-2">אילוסטרציה ויזואלית:</p>
+                        <p class="text-sm text-stone-700">דמיינו שאתם מלמדים מישהו משימה חדשה על ידי כך שאתם מראים לו 2-3 פעמים איך לבצע אותה, ורק אז מבקשים ממנו לנסות בעצמו.</p>
+                         <div class="mt-2 text-center font-mono text-teal-600">דוגמה 1 ⬅️ דוגמה 2 ⬅️ בקשה ⬅️ LLM</div>
+                    </div>
+                     <details class="group">
+                        <summary class="cursor-pointer font-semibold text-teal-600 hover:text-teal-800">הצג/הסתר דוגמאות</summary>
+                        <div class="mt-4 space-y-3 rtl">
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">מילה: אופניים, הגדרה: כלי תחבורה בעל שני גלגלים.
+מילה: קולנוע, הגדרה: אמנות יצירת סרטים.
+מילה: טלסקופ, הגדרה: מכשיר לצפייה בעצמים רחוקים.
+מילה: ארכיפלג, הגדרה:</pre>
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">טקסט: הסרט היה מרגש. סנטימנט: חיובי.
+טקסט: האוכל היה מאכזב. סנטימנט: שלילי.
+טקסט: הפגישה הייתה סבירה. סנטימנט: ניטרלי.
+טקסט: אני כל כך שמח לראות אותך! סנטימנט:</pre>
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">שאלה: מהי בירת ישראל? תשובה: ירושלים.
+שאלה: כמה זה 5 כפול 3? תשובה: 15.
+שאלה: מי כתב את "התקווה"? תשובה:</pre>
+                        </div>
+                    </details>
+                </article>
+
+                <article id="cot" class="bg-white p-6 rounded-lg shadow-lg scroll-mt-20">
+                    <h3 class="text-2xl font-bold text-teal-700 mb-3">Chain-of-Thought (CoT) Prompting</h3>
+                    <div class="bg-yellow-100 border-r-4 border-yellow-500 text-yellow-800 p-4 rounded-md mb-4">
+                        <p><span class="font-bold">משאבים נוספים:</span> טכניקה זו מפעילה ומנחה את יכולות ה-<span class="font-semibold">Reasoning</span> הפנימיות של המודל.</p>
+                    </div>
+                    <p class="text-stone-600 mb-4">טכניקה זו מעודדת את המודל לחשוב "צעד אחר צעד" ולפרט את תהליך החשיבה הלוגי שהוביל אותו לתשובה הסופית. זה שימושי במיוחד לפתרון בעיות מתמטיות, לוגיות או מרובות שלבים, ומאפשר לנו לבדוק את "דרך המחשבה" של המודל.</p>
+                    <div class="bg-stone-100 p-4 rounded-md mb-4">
+                        <p class="font-semibold mb-2">אילוסטרציה ויזואלית:</p>
+                        <p class="text-sm text-stone-700">במקום לבקש רק את התשובה הסופית לבעיה, אתם מבקשים להראות את "כל הדרך" על דף הטיוטה, שלב אחרי שלב, עד לפתרון.</p>
+                        <div class="mt-2 text-center font-mono text-teal-600">בקשה ⬅️ LLM (🤔 שלב 1... 🤔 שלב 2...) ⬅️ תשובה</div>
+                    </div>
+                     <details class="group">
+                        <summary class="cursor-pointer font-semibold text-teal-600 hover:text-teal-800">הצג/הסתר דוגמאות</summary>
+                        <div class="mt-4 space-y-3 rtl">
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">ש: לדנה יש 5 עפרונות. היא קנתה 2 חבילות נוספות. בכל חבילה יש 6 עפרונות. כמה עפרונות יש לה עכשיו?
+ת: בוא נחשוב שלב אחר שלב. דנה התחילה עם 5 עפרונות. 2 חבילות של 6 עפרונות זה 2 * 6 = 12 עפרונות. אז, 5 + 12 = 17. התשובה היא 17.
+ש: במקרר היו 10 תפוחים. אכלו 3 וקנו עוד 5. כמה תפוחים יש עכשיו?
+ת: בוא נחשוב שלב אחר שלב. התחלנו עם 10 תפוחים. אכלו 3, אז 10-3 = 7. קנו עוד 5, אז 7+5=12. התשובה היא 12.</pre>
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">הסבר את מחזור המים בטבע. פרט את התהליך לשלבים עוקבים, החל מהתאדות.</pre>
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">אני צריך לתכנן טיול ברכב מתל אביב לאילת. תאר מסלול הגיוני, כולל נקודות עצירה מומלצות וזמני נסיעה מוערכים. חשוב צעד אחר צעד.</pre>
+                        </div>
+                    </details>
+                </article>
+
+                <article id="self-consistency" class="bg-white p-6 rounded-lg shadow-lg scroll-mt-20">
+                    <h3 class="text-2xl font-bold text-teal-700 mb-3">Self-Consistency</h3>
+                    <div class="bg-yellow-100 border-r-4 border-yellow-500 text-yellow-800 p-4 rounded-md mb-4">
+                        <p><span class="font-bold">משאבים נוספים:</span> משתמש ב-<span class="font-semibold">Reasoning</span> מרובה ובדרך כלל דורש שכבת לוגיקה נוספת (למשל, קוד) כדי להשוות בין התשובות.</p>
+                    </div>
+                    <p class="text-stone-600 mb-4">טכניקה מתקדמת המבוססת על CoT. במקום לבקש מהמודל "דרך חשיבה" אחת, מבקשים ממנו לייצר מספר נתיבי חשיבה שונים לאותה שאלה, ואז בוחרים את התשובה הסופית שמופיעה הכי הרבה פעמים. זה מפחית את הסיכוי לטעויות ומגביר את אמינות הפתרון.</p>
+                    <div class="bg-stone-100 p-4 rounded-md mb-4">
+                        <p class="font-semibold mb-2">אילוסטרציה ויזואלית:</p>
+                        <p class="text-sm text-stone-700">דמיינו ועדה של מומחים. אתם שואלים את כולם את אותה השאלה, כל אחד מגיע לפתרון בדרך אחרת, ולבסוף אתם בוחרים את התשובה שעליה רוב המומחים הסכימו.</p>
+                        <div class="mt-2 text-center font-mono text-teal-600">בקשה ⬅️ [דרך א', דרך ב', דרך ג'] ⬅️ הצבעה ⬅️ תשובה סופית</div>
+                    </div>
+                     <details class="group">
+                        <summary class="cursor-pointer font-semibold text-teal-600 hover:text-teal-800">הצג/הסתר דוגמאות</summary>
+                        <div class="mt-4 space-y-3 rtl">
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">באיזו שנה נולד ראש הממשלה שחתם על הסכם השלום עם מצרים? הצג 3 דרכי חשיבה שונות להגיע לתשובה.
+דרך 1: הסכם השלום עם מצרים נחתם ב-1979. ראש הממשלה אז היה מנחם בגין. מנחם בגין נולד ב-1913.
+דרך 2: מנחם בגין הוא זה שחתם על ההסכם. אחפש את תאריך הלידה שלו. הוא נולד ב-16 באוגוסט 1913.
+דרך 3: מי חתם על הסכם השלום עם מצרים? מנחם בגין. מתי הוא נולד? 1913.
+תשובה סופית (על פי רוב קולות): 1913.</pre>
+                             <pre class="bg-gray-200 p-3 rounded-md text-sm">מהן שלוש דרכים שונות לגשת לפתרון החידה הבאה: "מה תמיד בא אבל אף פעם לא מגיע?" הצג שלושה קווי מחשבה נפרדים.</pre>
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">פתור את המשוואה x^2 - 3x + 2 = 0. הראה לי שלוש שיטות שונות: פירוק לגורמים, נוסחת השורשים והשלמה לריבוע.</pre>
+                        </div>
+                    </details>
+                </article>
+
+                <article id="react" class="bg-white p-6 rounded-lg shadow-lg scroll-mt-20">
+                    <h3 class="text-2xl font-bold text-teal-700 mb-3">ReAct (Reason + Act)</h3>
+                     <div class="bg-yellow-100 border-r-4 border-yellow-500 text-yellow-800 p-4 rounded-md mb-4">
+                        <p><span class="font-bold">משאבים נוספים:</span> משלב <span class="font-semibold">Reasoning</span> עם היכולת להשתמש ב-<span class="font-semibold">Tools</span> חיצוניים.</p>
+                    </div>
+                    <p class="text-stone-600 mb-4">מסגרת עבודה המאפשרת למודל לשלב בין הסקת מסקנות (Reasoning) לבין ביצוע פעולות (Acting) בעזרת כלים חיצוניים. המודל מפרק את המשימה לשלבים, ובכל שלב הוא חושב מה עליו לעשות, מבצע פעולה (למשל, חיפוש), מתבונן בתוצאה, וחושב על הצעד הבא, עד להגעה לתשובה.</p>
+                    <div class="bg-stone-100 p-4 rounded-md mb-4">
+                        <p class="font-semibold mb-2">אילוסטרציה ויזואלית:</p>
+                        <p class="text-sm text-stone-700">דמיינו חוקר פרטי. הוא חושב על רמז (Reason), הולך לחפש מידע בספרייה (Act), מסתכל על מה שמצא (Observation), וחושב על הרמז הבא. הוא חוזר על התהליך בלולאה.</p>
+                        <div class="mt-2 text-center font-mono text-teal-600">🔁 [מחשבה ⬅️ פעולה (כלי) ⬅️ תצפית] 🔁</div>
+                    </div>
+                     <details class="group">
+                        <summary class="cursor-pointer font-semibold text-teal-600 hover:text-teal-800">הצג/הסתר דוגמאות</summary>
+                        <div class="mt-4 space-y-3 rtl">
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">שאלה: מהו גובהה של העיר הגבוהה ביותר במדינה בה נמצא הקולוסאום?
+מחשבה: אני צריך למצוא היכן הקולוסאום, למצוא מהי המדינה, ואז לחפש את העיר הגבוהה ביותר באותה מדינה.
+פעולה: חיפוש("היכן נמצא הקולוסאום")
+תצפית: הקולוסאום נמצא ברומא, איטליה.
+מחשבה: המדינה היא איטליה. עכשיו אני צריך למצוא את העיר הגבוהה ביותר באיטליה.
+פעולה: חיפוש("העיר הגבוהה ביותר באיטליה")
+תצפית: העיר הגבוהה ביותר באיטליה היא טרפלה.
+תשובה סופית: טרפלה היא העיר הגבוהה ביותר באיטליה.</pre>
+                             <pre class="bg-gray-200 p-3 rounded-md text-sm">מיהו נשיא המדינה הנוכחי ומה הייתה תחזית מזג האוויר בירושלים אתמול? יש לך גישה לכלי חיפוש.</pre>
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">הזמן לי שולחן לשני אנשים במסעדה איטלקית בתל אביב למחר בערב, ואז מצא ביקורות עליה. יש לך גישה לכלי הזמנת מקומות וכלי חיפוש.</pre>
+                        </div>
+                    </details>
+                </article>
+
+                <article id="rag" class="bg-white p-6 rounded-lg shadow-lg scroll-mt-20">
+                    <h3 class="text-2xl font-bold text-teal-700 mb-3">Retrieval-Augmented Generation (RAG)</h3>
+                    <div class="bg-yellow-100 border-r-4 border-yellow-500 text-yellow-800 p-4 rounded-md mb-4">
+                        <p><span class="font-bold">משאבים נוספים:</span> דורש גישה למאגר נתונים חיצוני (Vector Database) המשמש כ-<span class="font-semibold">Tool</span> לשליפת מידע.</p>
+                    </div>
+                    <p class="text-stone-600 mb-4">טכניקה המשלבת את יכולות היצירה של LLM עם מאגר מידע חיצוני ועדכני. כאשר המשתמש שואל שאלה, המערכת תחילה מחפשת את המידע הרלוונטי ביותר במאגר הנתונים, ואז "מזריקה" את המידע הזה כהקשר (Context) לתוך הפרומפט. זה מאפשר למודל לענות על שאלות ספציפיות לתחום מסוים או לספק מידע עדכני יותר ממה שעליו אומן.</p>
+                    <div class="bg-stone-100 p-4 rounded-md mb-4">
+                        <p class="font-semibold mb-2">אילוסטרציה ויזואלית:</p>
+                        <p class="text-sm text-stone-700">דמיינו מומחה שצריך לענות על שאלה. לפני שהוא עונה, הוא ניגש לספרייה הפרטית והעדכנית שלו, שולף את הספר והעמוד המדויקים, קורא אותם, ורק אז מנסח את התשובה על בסיס המידע שמצא.</p>
+                        <div class="mt-2 text-center font-mono text-teal-600">שאלה ⬅️ חיפוש במאגר 📚 ⬅️ הזרקת הקשר ⬅️ LLM ⬅️ תשובה</div>
+                    </div>
+                     <details class="group">
+                        <summary class="cursor-pointer font-semibold text-teal-600 hover:text-teal-800">הצג/הסתר דוגמאות</summary>
+                        <div class="mt-4 space-y-3 rtl">
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">שאלת משתמש: מהי מדיניות החברה בנוגע לימי חופשה?
+מערכת: 1. מחפשת במאגר הידע הפנימי "מדיניות ימי חופשה". 2. מאחזרת את המסמך הרלוונטי. 3. מעבירה את הטקסט ל-LLM עם הפרומפט: "בהתבסס על המסמך הבא, ענה על שאלת המשתמש בנוגע לימי חופשה: [טקסט המסמך שאוחזר]".</pre>
+                             <pre class="bg-gray-200 p-3 rounded-md text-sm">לפי מאגר המידע המשפטי הפנימי שלנו, מהי הפסיקה האחרונה בנוגע לתיק XYZ?</pre>
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">סכם את הממצאים העיקריים מדוח סיכום הפרויקט לרבעון האחרון [המערכת תאחזר את הדוח תחילה].</pre>
+                        </div>
+                    </details>
+                </article>
+
+                 <article id="meta" class="bg-white p-6 rounded-lg shadow-lg scroll-mt-20">
+                    <h3 class="text-2xl font-bold text-teal-700 mb-3">Meta Prompting</h3>
+                    <div class="bg-yellow-100 border-r-4 border-yellow-500 text-yellow-800 p-4 rounded-md mb-4">
+                        <p><span class="font-bold">משאבים נוספים:</span> יכול להשתמש בכל המשאבים הקודמים (<span class="font-semibold">Reasoning, Tools</span>), ודורש תכנון של מערכת מורכבת יותר.</p>
+                    </div>
+                    <p class="text-stone-600 mb-4">טכניקה מתקדמת ביותר שבה משתמשים ב-LLM כדי לנהל ולתזמר משימות המבוצעות על ידי LLMs אחרים (או על ידי עצמו). במקום לתת למודל הוראות ישירות, נותנים לו פרומפט "על" (Meta) שמתאר את המטרה, את התפקידים השונים, את התהליך ואת תבנית הפלט הרצויה. ה-LLM המנהל מפרק את המשימה ויוצר פרומפטים ספציפיים עבור "סוכני" LLM אחרים.</p>
+                    <div class="bg-stone-100 p-4 rounded-md mb-4">
+                        <p class="font-semibold mb-2">אילוסטרציה ויזואלית:</p>
+                        <p class="text-sm text-stone-700">דמיינו שאתם מנכ"לים שנותנים הנחיה אסטרטגית למנהל פרויקט. המנהל (ה-Meta LLM) לוקח את ההנחיה, מפרק אותה למשימות קטנות, ונותן הוראות מדויקות לכל אחד מחברי הצוות (ה-LLMs "העובדים").</p>
+                        <div class="mt-2 text-center font-mono text-teal-600">משתמש ⬅️ LLM מנהל 🧠 ⬅️ [פרומפט 1, פרומפט 2] ⬅️ LLMs עובדים ⬅️ תוצאה</div>
+                    </div>
+                     <details class="group">
+                        <summary class="cursor-pointer font-semibold text-teal-600 hover:text-teal-800">הצג/הסתר דוגמאות</summary>
+                        <div class="mt-4 space-y-3 rtl">
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">פרומפט-על: "אתה מומחה לתכנון טיולים. מטרתך היא ליצור תוכנית מפורטת לטיול של שבוע בצפון הארץ למשפחה עם ילדים. ראשית, פעל כסוכן 'רעיונאי' כדי לרשום אטרקציות אפשריות. לאחר מכן, פעל כסוכן 'לוגיסטי' כדי לארגן אותן לפי ימים ואזורים גיאוגרפיים. לבסוף, פעל כסוכן 'מסכם' כדי להוסיף המלצות למסעדות ולינה."</pre>
+                             <pre class="bg-gray-200 p-3 rounded-md text-sm">צור דוח ניתוח שוק מקיף עבור בית קפה חדש בירושלים. תנהל שלושה סוכנים מומחים: 'אנליסט נתונים' למציאת נתונים דמוגרפיים, 'חוקר מתחרים' לבדיקת בתי קפה סמוכים, ו'אסטרטג' שיסנתז את המידע להמלצות מעשיות.</pre>
+                            <pre class="bg-gray-200 p-3 rounded-md text-sm">כתוב סיפור ילדים קצר. ראשית, צור פרופילים לשלוש דמויות של חיות. לאחר מכן, צור תקציר עלילה. לבסוף, כתוב את הסיפור המשלב את הדמויות והעלילה.</pre>
+                        </div>
+                    </details>
+                </article>
+
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('section[id], article[id]');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        navLinks.forEach(link => {
+                            link.classList.remove('active-nav');
+                            if (link.getAttribute('href').substring(1) === entry.target.id) {
+                                link.classList.add('active-nav');
+                            }
+                        });
+                    }
+                });
+            }, { rootMargin: "-50% 0px -50% 0px" });
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+            
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                     e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    if(targetElement){
+                         targetElement.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
