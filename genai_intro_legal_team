@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>מדריך AI יוצר (Generative AI) לצוותים פרלמנטריים</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Chosen Palette: Warm Neutrals -->
+    <!-- Application Structure Plan: A single-page application with a sticky top navigation for smooth scrolling between thematic sections. This structure guides the non-technical user logically from the basics ("What is it?") to practical application ("How can I use it?"). The flow is: 1. Introduction (simple analogy), 2. Evolution (interactive timeline), 3. Types (interactive cards), 4. Pros & Cons (with a role-based interactive accordion for personalized insights & risk mitigation), 5. Decision Framework (actionable summary). This is more intuitive than a simple document, encouraging exploration and directly addressing the user's need for a decision-making tool. -->
+    <!-- Visualization & Content Choices: 
+        - Evolution: Report Info -> AI Milestones -> Goal: Show historical context -> Viz: Interactive vertical timeline made with HTML/CSS -> Interaction: Click events to reveal info -> Justification: More engaging and less overwhelming than a long text block.
+        - AI Types: Report Info -> Categories of GenAI -> Goal: Differentiate AI capabilities -> Viz: Grid of clickable cards with icons -> Interaction: Click to show details and relevant examples -> Justification: Breaks down complex topics into digestible, visually separated chunks.
+        - Pros vs. Cons Analysis: Report Info -> Use cases for parliamentary staff -> Goal: Provide actionable advice for specific roles -> Viz: Interactive Accordion (HTML/JS) -> Interaction: Click to expand role-specific tasks, revealing good/bad examples and risk mitigation techniques -> Justification: Replaces the abstract chart with concrete, practical guidance. It's more educational and directly addresses user concerns about safety and effectiveness.
+        - Decision Framework: Report Info -> Best practices and warnings -> Goal: Provide a clear, actionable summary -> Viz: A simple, color-coded table (Do/Don't style) made with HTML/Tailwind -> Interaction: None, it's a summary -> Justification: Translates the entire report into a quick reference guide.
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+
+    <style>
+        body {
+            font-family: 'Assistant', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 400px;
+            max-height: 50vh;
+        }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #64748b;
+            border-radius: 10px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #475569;
+        }
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800">
+
+    <header class="bg-white/80 backdrop-blur-lg sticky top-0 z-50 shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center">
+                    <span class="font-bold text-xl text-sky-800">מדריך AI יוצר</span>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-4 space-x-reverse">
+                        <a href="#intro" class="text-slate-600 hover:bg-slate-200 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">מבוא</a>
+                        <a href="#evolution" class="text-slate-600 hover:bg-slate-200 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">התפתחות</a>
+                        <a href="#types" class="text-slate-600 hover:bg-slate-200 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">סוגי מודלים</a>
+                        <a href="#analysis" class="text-slate-600 hover:bg-slate-200 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">יתרונות וחסרונות</a>
+                        <a href="#framework" class="text-slate-600 hover:bg-slate-200 hover:text-slate-900 px-3 py-2 rounded-md text-sm font-medium">מתי כן ומתי לא?</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <section id="intro" class="text-center mb-24">
+            <h1 class="text-4xl md:text-5xl font-extrabold text-slate-900 mb-4">מה זה AI יוצר (Generative AI)?</h1>
+            <p class="max-w-3xl mx-auto text-lg text-slate-600 mb-8">
+                זוהי טכנולוגיה שיודעת ליצור תוכן חדש ומקורי שלא היה קיים קודם - טקסטים, תמונות, מוזיקה ועוד.
+                חשבו על זה כמו על עוזר אישי שלמד את כל הידע האנושי באינטרנט, ועכשיו הוא לא רק עונה על שאלות, אלא גם יכול לכתוב עבורכם נאום, לנסח הודעה לתקשורת או ליצור תמונה מרשימה לפוסט ברשתות החברתיות, והכל בסגנון שתבקשו.
+            </p>
+            <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-sky-800 mb-3">אנלוגיה פשוטה: המתמחה הגאון</h3>
+                <div class="flex flex-col md:flex-row items-center gap-6 text-right">
+                    <div class="text-6xl">🧠</div>
+                    <p class="text-slate-700 text-base md:text-lg">
+                        דמיינו מתמחה חדש בצוות. לא מתמחה רגיל, אלא כזה שקרא כל פרוטוקול, כל הצעת חוק וכל נאום שנכתב אי פעם. הוא למד את התבניות, הסגנונות והניואנסים. עכשיו, כשאתם מבקשים ממנו לכתוב טיוטה, הוא לא מעתיק משהו קיים. במקום זאת, הוא משתמש בכל הידע העצום שצבר כדי "לייצר" טקסט חדש, קוהרנטי ומותאם לבקשה שלכם. זה בדיוק מה ש-AI יוצר עושה עם מידע דיגיטלי.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="evolution" class="mb-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">איך הגענו עד הלום? ציר זמן מתעדכן</h2>
+            <div class="relative max-w-3xl mx-auto">
+                <div class="border-r-2 border-slate-300 absolute h-full top-0" style="right: 15px;"></div>
+                <ul class="space-y-8">
+                    <li class="timeline-item">
+                        <div class="flex items-center">
+                            <div class="bg-sky-700 rounded-full h-8 w-8 z-10 flex items-center justify-center text-white font-bold">1</div>
+                            <div class="pr-8">
+                                <h4 class="font-bold text-xl">שנות ה-50-60: הרעיון נולד</h4>
+                                <p class="text-slate-600">מבחן טיורינג והצ'אטבוט הראשון (ELIZA). המכונות בעיקר מחקות שיחה לפי כללים קבועים מראש, ללא "הבנה" אמיתית.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                         <div class="flex items-center">
+                            <div class="bg-sky-700 rounded-full h-8 w-8 z-10 flex items-center justify-center text-white font-bold">2</div>
+                            <div class="pr-8">
+                                <h4 class="font-bold text-xl">שנות ה-80-2000: למידת מכונה קלאסית (Classic ML)</h4>
+                                <p class="text-slate-600">אלגוריתמים לומדים לזהות תבניות בנתונים. הם מצוינים בסיווג (למשל, זיהוי ספאם) ובחיזוי (למשל, תחזית מזג אוויר), אך עדיין לא יודעים *ליצור* תוכן חדש.</p>
+                            </div>
+                        </div>
+                    </li>
+                     <li class="timeline-item">
+                         <div class="flex items-center">
+                            <div class="bg-sky-700 rounded-full h-8 w-8 z-10 flex items-center justify-center text-white font-bold">3</div>
+                            <div class="pr-8">
+                                <h4 class="font-bold text-xl">2014: רשתות GAN - לידת היצירתיות</h4>
+                                <p class="text-slate-600">פריצת דרך המאפשרת למודלים לייצר תמונות ריאליסטיות. שני מודלים "מתחרים" ומשפרים אחד את השני, מה שמוביל לתוצרים יצירתיים בפעם הראשונה.</p>
+                            </div>
+                        </div>
+                    </li>
+                     <li class="timeline-item">
+                        <div class="flex items-center">
+                            <div class="bg-sky-700 rounded-full h-8 w-8 z-10 flex items-center justify-center text-white font-bold">4</div>
+                            <div class="pr-8">
+                                <h4 class="font-bold text-xl">2017: מודל ה"טרנספורמר"</h4>
+                                <p class="text-slate-600">גוגל מפרסמת ארכיטקטורה חדשה המאפשרת למודלים להבין הקשר במשפטים ארוכים. זוהי אבן הפינה לכל מודלי השפה הגדולים (LLMs) המוכרים לנו היום.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="flex items-center">
+                            <div class="bg-sky-700 rounded-full h-8 w-8 z-10 flex items-center justify-center text-white font-bold">5</div>
+                            <div class="pr-8">
+                                <h4 class="font-bold text-xl">2022: הפיצוץ הגדול לציבור</h4>
+                                <p class="text-slate-600">השקה ציבורית של ChatGPT ומחוללי תמונות כמו Midjourney. הטכנולוגיה הופכת לנגישה למיליונים ומשנה את כללי המשחק.</p>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="timeline-item">
+                        <div class="flex items-center">
+                            <div class="bg-sky-700 rounded-full h-8 w-8 z-10 flex items-center justify-center text-white font-bold">6</div>
+                            <div class="pr-8">
+                                <h4 class="font-bold text-xl">2023-2025: התבגרות והתפשטות</h4>
+                                <p class="text-slate-600">שחרור מודלים חזקים יותר (כמו GPT-4), התפתחות מודלי קוד פתוח, ויכולות חדשות כמו יצירת וידאו (Sora). המיקוד עובר מצ'אט פשוט ל"סוכני AI" שיכולים לבצע משימות מורכבות, והטכנולוגיה משולבת במוצרים יומיומיים (מערכות הפעלה, מנועי חיפוש ועוד).</p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+
+        <section id="types" class="mb-24">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">ארגז הכלים: סוגים עיקריים של AI יוצר</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200 hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4">✍️</div>
+                    <h3 class="text-2xl font-bold text-sky-800 mb-2">מודלי טקסט (LLMs)</h3>
+                    <p class="text-slate-600"><strong>מה זה?</strong> מודלים שאומנו על כמויות אדירות של טקסט ויודעים להבין וליצור שפה אנושית.</p>
+                    <p class="text-slate-600 mt-2"><strong>שימוש פרלמנטרי:</strong> ניסוח טיוטות לנאומים, מענה לפניות ציבור, סיכום מסמכים ארוכים, הכנת נקודות לדיון בוועדה.</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200 hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4">🖼️</div>
+                    <h3 class="text-2xl font-bold text-sky-800 mb-2">מחוללי תמונות</h3>
+                    <p class="text-slate-600"><strong>מה זה?</strong> מודלים שהופכים תיאור טקסטואלי (פרומפט) לתמונה ויזואלית חדשה.</p>
+                    <p class="text-slate-600 mt-2"><strong>שימוש פרלמנטרי:</strong> יצירת תמונות מקוריות לפוסטים ברשתות החברתיות, אינפוגרפיקות להמחשת נתונים, ויזואליזציה של קונספטים.</p>
+                </div>
+                 <div class="bg-white p-6 rounded-2xl shadow-lg border border-slate-200 hover:shadow-xl transition-shadow">
+                    <div class="text-4xl mb-4">💻</div>
+                    <h3 class="text-2xl font-bold text-sky-800 mb-2">מחוללי קוד</h3>
+                    <p class="text-slate-600"><strong>מה זה?</strong> מודלים שמבינים שפות תכנות ויכולים לכתוב קוד, לתקן שגיאות ולהסביר קטעי קוד מורכבים.</p>
+                    <p class="text-slate-600 mt-2"><strong>שימוש פרלמנטרי:</strong> פחות רלוונטי לעבודה השוטפת, אך יכול לסייע לצוותי הדיגיטל בבניית אתרים או אפליקציות פשוטות.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="analysis" class="mb-24">
+             <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-2">חרב פיפיות: יתרונות מול חסרונות</h2>
+             <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto">כדי להחליט איך ומתי להשתמש בכלים האלה, חשוב להבין את שני צדי המטבע. האיזון בין הגברת היעילות לבין שמירה על אמינות הוא קריטי.</p>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <div class="bg-green-50 border-2 border-green-200 p-6 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-green-800 mb-4">✅ יתרונות</h3>
+                    <ul class="space-y-3 list-inside text-green-900">
+                        <li><strong>יעילות וחיסכון בזמן:</strong> אוטומציה של משימות שגרתיות כמו סיכומים וכתיבת טיוטות ראשוניות. <span class="font-semibold block">דוגמה:</span> עוזר/ת פרלמנטרי/ת יכול/ה לסכם פרוטוקול של 50 עמודים תוך דקה.</li>
+                        <li><strong>הגברת יצירתיות:</strong> קבלת רעיונות חדשים וזוויות שונות (סיעור מוחות). <span class="font-semibold block">דוגמה:</span> יועץ/ת יכול/ה לבקש 5 גישות שונות לכתיבת נאום על חינוך.</li>
+                        <li><strong>שיפור התקשורת:</strong> ניסוח מהיר ומדויק של מסרים בערוצים שונים. <span class="font-semibold block">דוגמה:</span> דובר/ת יכול/ה להפוך הודעה לעיתונות לציוץ קצר, פוסט לפייסבוק וקטע לניוזלטר בלחיצת כפתור.</li>
+                         <li><strong>נגישות למידע:</strong> קבלת תשובות מהירות ומרוכזות לשאלות מורכבות, במקום חיפוש ממושך. <span class="font-semibold block">דוגמה:</span> קבלת תקציר של מחקר אקדמי כהכנה לדיון בוועדה.</li>
+                    </ul>
+                </div>
+                 <div class="bg-red-50 border-2 border-red-200 p-6 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-red-800 mb-4">❌ חסרונות וסיכונים</h3>
+                    <ul class="space-y-3 list-inside text-red-900">
+                        <li><strong>אי-דיוקים ועובדות שגויות ("הזיות"):</strong> המודל עלול להמציא נתונים, מקורות או ציטוטים שנראים אמינים. <span class="font-semibold block">דוגמה:</span> ציטוט שגוי של סעיף חוק בטיוטה להצעת חוק. <strong class="text-red-600">חובה לאמת כל נתון!</strong></li>
+                        <li><strong>הטיות (Bias):</strong> המודל משקף את ההטיות הקיימות במידע שעליו אומן, מה שעלול להוביל לתוכן מפלה או סטריאוטיפי. <span class="font-semibold block">דוגמה:</span> ניסוח פנייה לציבור שאינה רגישה למגזרים מסוימים.</li>
+                        <li><strong>פרטיות ואבטחת מידע:</strong> העלאת מידע רגיש (פניות ציבור, מסמכים פנימיים) למערכות חיצוניות מהווה סיכון אבטחתי. <span class="font-semibold block">דוגמה:</span> הדלפת פרטים אישיים מפניית ציבור שהוזנה למערכת.</li>
+                         <li><strong>אובדן האותנטיות:</strong> שימוש יתר עלול ליצור תוכן גנרי וחסר קול אישי וייחודי. <span class="font-semibold block">דוגמה:</span> נאום שנשמע רובוטי ולא משכנע כי לא עבר התאמה אישית.</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="mt-16">
+                 <h3 class="text-2xl md:text-3xl font-bold text-center text-slate-900 mb-8">יישום מעשי: מדריך משימות לפי תפקיד</h3>
+                 <div class="space-y-4 max-w-4xl mx-auto" id="roles-accordion">
+                    <!-- Accordion Item 1: Assistant -->
+                    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="accordion-header w-full text-right p-5 flex justify-between items-center bg-slate-100 hover:bg-slate-200 transition-colors">
+                            <span class="font-bold text-lg text-sky-800">👤 עוזר/ת פרלמנטרי/ת</span>
+                            <span class="accordion-icon text-xl font-bold transform transition-transform">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-5 space-y-4">
+                                <h4 class="font-bold text-md">סיכום מסמכים (פרוטוקולים, דוחות)</h4>
+                                <p><strong>✅ שימוש מומלץ:</strong> "סכם לי את 5 הנקודות המרכזיות מהטקסט הבא. התמקד בהחלטות שהתקבלו ובהתנגדויות שהועלו."</p>
+                                <p><strong>🚨 שימוש מסוכן:</strong> "סכם את המסמך." (בקשה כללית מדי עלולה להחמיץ ניואנסים חשובים).</p>
+                                <p><strong>🛡️ הפחתת סיכונים:</strong> קראו תמיד את הסיכום מול מסמך המקור כדי לוודא שלא הושמטו פרטים קריטיים. השתמשו בכלי רק עבור מסמכים לא רגישים.</p>
+                                <hr>
+                                <h4 class="font-bold text-md">ניסוח מענה ראשוני לפניות ציבור</h4>
+                                 <p><strong>✅ שימוש מומלץ:</strong> "נסח מענה אדיב לפניית ציבור בנושא יוקר המחיה. ציין שהנושא בטיפול, והפנה את הפונה לגורם הרלוונטי במשרד הכלכלה."</p>
+                                <p><strong>🚨 שימוש מסוכן:</strong> העתקת פנייה המכילה פרטים אישיים והדבקתה בחלון הצ'אט.</p>
+                                <p><strong>🛡️ הפחתת סיכונים:</strong> הסירו כל פרט מזהה (שם, ת"ז, כתובת) לפני הזנת הפנייה. השתמשו בטיוטה כבסיס בלבד והתאימו אותה אישית לכל פונה.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Accordion Item 2: Spokesperson -->
+                    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="accordion-header w-full text-right p-5 flex justify-between items-center bg-slate-100 hover:bg-slate-200 transition-colors">
+                            <span class="font-bold text-lg text-sky-800">📢 דובר/ת</span>
+                             <span class="accordion-icon text-xl font-bold transform transition-transform">+</span>
+                        </button>
+                        <div class="accordion-content">
+                           <div class="p-5 space-y-4">
+                                <h4 class="font-bold text-md">כתיבת טיוטה לפוסט ברשת חברתית</h4>
+                                <p><strong>✅ שימוש מומלץ:</strong> "כתוב טיוטה לפוסט בפייסבוק באורך 3 פסקאות על חשיבות המיחזור, בסגנון חיובי ומעודד לפעולה. הוסף 3 אימוג'ים רלוונטיים."</p>
+                                <p><strong>🚨 שימוש מסוכן:</strong> "כתוב פוסט על המצב הביטחוני." (נושא רגיש הדורש דיוק מרבי וקול אישי, לא גנרי).</p>
+                                <p><strong>🛡️ הפחתת סיכונים:</strong> הגדירו במדויק את הטון, הקהל והמסר המרכזי. בדקו כל נתון המופיע בטיוטה והתאימו את הנוסח לקול הייחודי של חבר/ת הכנסת.</p>
+                                <hr>
+                                <h4 class="font-bold text-md">יצירת רעיונות לכותרות</h4>
+                                 <p><strong>✅ שימוש מומלץ:</strong> "הצע 10 כותרות קליטות להודעה לעיתונות בנושא 'תוכנית חדשה לסיוע לעסקים קטנים'."</p>
+                                <p><strong>🚨 שימוש מסוכן:</strong> לבחור ולהשתמש בכותרת כפי שהיא, מבלי לוודא שהיא משקפת במדויק את תוכן ההודעה.</p>
+                                <p><strong>🛡️ הפחתת סיכונים:</strong> השתמשו ברשימה כהשראה בלבד. בחרו את הכיוון הטוב ביותר ונסחו את הכותרת הסופית בעצמכם.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Accordion Item 3: Advisor -->
+                    <div class="bg-white border border-slate-200 rounded-xl overflow-hidden">
+                        <button class="accordion-header w-full text-right p-5 flex justify-between items-center bg-slate-100 hover:bg-slate-200 transition-colors">
+                            <span class="font-bold text-lg text-sky-800">🏛️ יועץ/ת (נאומים, מדיניות)</span>
+                             <span class="accordion-icon text-xl font-bold transform transition-transform">+</span>
+                        </button>
+                        <div class="accordion-content">
+                            <div class="p-5 space-y-4">
+                                <h4 class="font-bold text-md">כתיבת טיוטה לנאום</h4>
+                                <p><strong>✅ שימוש מומלץ:</strong> "כתוב טיוטת פתיחה לנאום בכנס חינוך, באורך דקה. שלב סיפור קצר על חשיבות ההשקעה במורים. הטון צריך להיות מעורר השראה."</p>
+                                <p><strong>🚨 שימוש מסוכן:</strong> להסתמך על ה-AI לכתיבת נאום שלם בנושא מדיני או כלכלי מורכב.</p>
+                                <p><strong>🛡️ הפחתת סיכונים:</strong> השתמשו בכלי לבניית שלד ומבנה, אך מלאו אותו בתוכן מקורי, בנתונים מאומתים ובמסרים אישיים. האמינות והאותנטיות הן קריטיות.</p>
+                                <hr>
+                                <h4 class="font-bold text-md">הכנת נקודות לדיון בוועדה</h4>
+                                 <p><strong>✅ שימוש מומלץ:</strong> "בהתבסס על הצעת החוק הזו [הדבקת טקסט לא רגיש], הצג 3 טיעונים מרכזיים בעד ו-3 טיעונים נגד."</p>
+                                <p><strong>🚨 שימוש מסוכן:</strong> לבקש מהמודל למצוא נתונים סטטיסטיים ספציפיים לתמיכה בטיעון.</p>
+                                <p><strong>🛡️ הפחתת סיכונים:</strong> השתמשו ב-AI לניתוח טקסטואלי ורעיוני. את כל הנתונים, הסטטיסטיקות והעובדות יש לאמת באופן עצמאי ממקורות מוסמכים (למ"ס, מרכז המחקר והמידע של הכנסת וכו').</p>
+                            </div>
+                        </div>
+                    </div>
+                 </div>
+            </div>
+
+        </section>
+
+        <section id="framework">
+            <h2 class="text-3xl md:text-4xl font-bold text-center text-slate-900 mb-12">קבלת החלטות: מתי כן ומתי לא?</h2>
+            <p class="text-center text-slate-600 mb-8 max-w-3xl mx-auto">השתמשו בטבלה זו כמצפן שיסייע לכם להחליט האם משימה מסוימת מתאימה לשימוש ב-AI יוצר. הכלל המנחה: AI הוא כלי עזר מצוין לטיוטות ראשוניות ולסיעור מוחות, אך תמיד דורש פיקוח, אימות ועריכה אנושית.</p>
+            
+            <div class="overflow-x-auto bg-white rounded-2xl shadow-lg border border-slate-200 p-4">
+                <table class="w-full min-w-max text-right">
+                    <thead>
+                        <tr class="border-b-2 border-slate-200">
+                            <th class="p-4 font-bold text-slate-700">סוג המשימה</th>
+                            <th class="p-4 font-bold text-slate-700">המלצה</th>
+                            <th class="p-4 font-bold text-slate-700">שיקולים מרכזיים</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-slate-100">
+                            <td class="p-4">סיעור מוחות ורעיונות ראשוניים</td>
+                            <td class="p-4 text-center"><span class="bg-green-100 text-green-800 font-bold py-1 px-3 rounded-full text-lg">✅ מומלץ</span></td>
+                            <td class="p-4">מעולה לקבלת כיוונים חדשים, אך יש לסנן את הרעיונות ולפתח אותם באופן עצמאי.</td>
+                        </tr>
+                         <tr class="border-b border-slate-100 bg-slate-50">
+                            <td class="p-4">כתיבת טיוטה ראשונה (נאום, פוסט, מייל)</td>
+                            <td class="p-4 text-center"><span class="bg-green-100 text-green-800 font-bold py-1 px-3 rounded-full text-lg">✅ מומלץ</span></td>
+                            <td class="p-4">חוסך זמן רב. חובה לבצע עריכה מעמיקה, להוסיף קול אישי ולאמת כל עובדה.</td>
+                        </tr>
+                        <tr class="border-b border-slate-100">
+                            <td class="p-4">סיכום מסמכים ארוכים לא רגישים</td>
+                            <td class="p-4 text-center"><span class="bg-yellow-100 text-yellow-800 font-bold py-1 px-3 rounded-full text-lg">⚠️ בזהירות</span></td>
+                            <td class="p-4">יעיל מאוד, אך יש סכנה לאיבוד ניואנסים חשובים או להבנה שגויה של ההקשר. טוב לקבלת תמונה כללית.</td>
+                        </tr>
+                        <tr class="border-b border-slate-100 bg-slate-50">
+                            <td class="p-4">חיפוש מידע ועובדות ספציפיות</td>
+                            <td class="p-4 text-center"><span class="bg-yellow-100 text-yellow-800 font-bold py-1 px-3 rounded-full text-lg">⚠️ בזהירות ואחריות</span></td>
+                            <td class="p-4">
+                                <p class="mb-2">מודלים ישנים נוטים להמציא עובדות ("הזיות"). כלים מודרניים המחוברים לאינטרנט בזמן אמת (כמו Perplexity, או גרסאות עדכניות של Gemini ו-ChatGPT) מצמצמים סיכון זה על ידי ציטוט מקורות.</p>
+                                <div>
+                                    <strong>שיטת פעולה מומלצת:</strong>
+                                    <ol class="list-decimal list-inside pr-4 mt-1">
+                                        <li>העדיפו כלים המציגים קישורים למקורות מידע.</li>
+                                        <li>הצליבו תמיד את התשובה עם המקורות שהכלי סיפק.</li>
+                                        <li>התייחסו לתשובה כנקודת פתיחה למחקר, לא כאמת מוחלטת.</li>
+                                    </ol>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td class="p-4">טיפול במידע רגיש או אישי</td>
+                            <td class="p-4 text-center"><span class="bg-red-100 text-red-800 font-bold py-1 px-3 rounded-full text-lg">תלוי בכלי</span></td>
+                            <td class="p-4">
+                                <ul class="space-y-2">
+                                    <li><strong class="text-red-700">בכלים חינמיים/ציבוריים: ❌ אסור בהחלט.</strong> המידע עלול לשמש לאימון המודל ואין ערובה לפרטיות.</li>
+                                    <li><strong class="text-green-700">בגרסאות עסקיות/ארגוניות (בתשלום): ✅ אפשרי בזהירות.</strong> כלים אלו מציעים התחייבות חוזית שהמידע לא משמש לאימון. חובה לוודא את תנאי השימוש ולקבל אישור מגורמי אבטחת מידע.</li>
+                                </ul>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-slate-800 text-white mt-16">
+        <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8 text-center">
+            <p>© 2025 מדריך AI יוצר לצוותים פרלמנטריים. פותח ככלי עזר והדרכה.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetSection = document.querySelector(targetId);
+                    if (targetSection) {
+                         targetSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    }
+                });
+            });
+
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', () => {
+                    const content = header.nextElementSibling;
+                    const icon = header.querySelector('.accordion-icon');
+                    
+                    // Close all other accordions
+                    accordionHeaders.forEach(otherHeader => {
+                        if (otherHeader !== header) {
+                            otherHeader.nextElementSibling.style.maxHeight = null;
+                            otherHeader.querySelector('.accordion-icon').textContent = '+';
+                        }
+                    });
+
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        icon.textContent = '+';
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + 'px';
+                        icon.textContent = '-';
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+
+
